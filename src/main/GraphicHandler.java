@@ -22,11 +22,16 @@ import sun.plugin2.gluegen.runtime.BufferFactory;
 public class GraphicHandler extends JPanel {
 
     private java.util.Timer animationTimer = new java.util.Timer();
-    private Integer fpsCounter = 0;
+
     public ArrayList<BufferedImage> images;
     public BufferedImage displayedImage;
+
     // Rasters = rectangular grid / array of pixels
     private int [] pixels;
+
+    private int [] calc_pixels;
+    private int width;
+    private int height;
 
     public ArrayList<Entity> entities = new ArrayList<Entity> ();
     public String rel_path = "src/Resources/sprites/walking";
@@ -34,24 +39,22 @@ public class GraphicHandler extends JPanel {
     private LevelManager levelManager;
     private Integer imageCounter;
 
+    private int timer;
+    private int counter;
+
     public MainFrame frame;
 
     // Schedueled task manager
     ScheduledExecutorService ses;
     Runnable walkAnimation;
-    public GraphicHandler(MainFrame frame) {
-        this.player = new Player();
-        this.player.setPostition(new Vector2(300, 50  ));
-        this.levelManager = new LevelManager();
-        this.images = new ArrayList<BufferedImage>();
-        load_sprites();
-        this.displayedImage = images.get(0);
-        this.imageCounter =0;
-        ses = Executors.newScheduledThreadPool(1);
+    public GraphicHandler(MainFrame frame, int width, int height) {
         this.frame = frame;
-        walkAnimation = () -> displayedImage = images.get(imageCounter++);
-        displayedImage = new BufferedImage(frame.getWidth(),frame.getHeight(),BufferedImage.TYPE_INT_RGB);
-        pixels = ((DataBufferInt)displayedImage.getRaster().getDataBuffer()).getData();
+        this.width = width;
+        this.height = height;
+        this.pixels = new int[width*height];
+
+        displayedImage = new BufferedImage(this.width,this.height,BufferedImage.TYPE_INT_RGB);
+        calc_pixels = ((DataBufferInt)displayedImage.getRaster().getDataBuffer()).getData();
     }
     private void load_sprites(){
          ArrayList<String> names = getSpriteNames("Sprite-0001Walking",7);
@@ -76,37 +79,46 @@ public class GraphicHandler extends JPanel {
             frame.createBufferStrategy(3);
             return;
         }
+        counter++;
+        if(counter %100 == 0){
+            timer++;
+        }
+        this.clear();
+        this.display();
+        for(int i =0; i <calc_pixels.length; i++){
+            this.calc_pixels[i] = this.pixels[i];
+        }
+
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.BLACK);
         g.fillRect(0,0,frame.getWidth(),frame.getHeight());
 
-//        this.setBackground(Color.WHITE);
-//        Graphics2D drawTool = (Graphics2D) g;
-//        if(imageCounter >=6){
-//            imageCounter=0;
-//        }
-        // Draw player
-//        drawTool.drawImage(displayedImage,(int) player.getX(),(int) player.getY(),65,65, null);
-//        drawTool.drawString(Integer.toString(this.fpsCounter),LevelManager.WIDTH-50,10);
-
-//        levelManager.setupDevloperLevel(g);
-//        levelManager.draw(drawTool);
+        g.drawImage(displayedImage,0,0,this.width,this.height, null);
 
         g.dispose();
         bs.show();
     }
 
-    public void tick(){
-        this.player.update(3);
-    }
-
-    public void clear(){
-        for(int pixel : pixels){
-            pixel=0;
+    public void display(){
+        for (int y=0; y <height; y++) {
+            for (int x=0; x <width; x++) {
+                pixels[300+timer*width] = 0xff00ff;
+            }
         }
     }
+
+    public void clear() {
+        for(int i=0; i < pixels.length; i++){
+            pixels[i]=0;
+        }
+    }
+    public void tick(){
+       // this.player.update(3);
+    }
+
     public Player getPlayer() {
-        return this.player;
+        //return this.player;
+        return null;
     }
 
     public ArrayList<String> getSpriteNames(String name, Integer num_images) {

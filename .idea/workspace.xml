@@ -19,10 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="281b46bc-8d70-4793-8cd4-f2e3a34fda8f" name="Default Changelist" comment="">
+    <list default="true" id="65664000-a040-44fd-aff8-5e7f7057789e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/EscapeFromRPG.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GraphicHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Runner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1h6t7pIOz01nzXqb2GNUhN18IVJ" />
+  <component name="ProjectId" id="1jR7XSnOm88dQu00rhwjRVB1gh4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,12 +43,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
   <component name="RunManager">
-    <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Runner" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Runner" />
-      <module name="Time_Platformer" />
+      <module name="EscapeFromRPG" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -57,31 +58,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Runner" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="281b46bc-8d70-4793-8cd4-f2e3a34fda8f" name="Default Changelist" comment="" />
-      <created>1599343204961</created>
+      <changelist id="65664000-a040-44fd-aff8-5e7f7057789e" name="Default Changelist" comment="" />
+      <created>1603755089187</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1599343204961</updated>
+      <updated>1603755089187</updated>
     </task>
-    <task id="LOCAL-00001" summary="(feat): Added thread support">
-      <created>1599346073283</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1599346073283</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,76 +82,43 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="(feat): Added thread support" />
-    <option name="LAST_COMMIT_MESSAGE" value="(feat): Added thread support" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="376" y="240" width="773" height="559" key="#Menus_and_Toolbars" timestamp="1599347110512">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603755203014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="376" y="240" width="773" height="559" key="#Menus_and_Toolbars/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599347110512" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599343249459">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603755203014" />
+    <state width="1877" height="215" key="GridCell.Tab.0.bottom" timestamp="1603761555119">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599343249459" />
-    <state x="1076" y="283" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1599347108532">
+    <state width="1877" height="215" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603761555119" />
+    <state width="1877" height="215" key="GridCell.Tab.0.center" timestamp="1603761555119">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1076" y="283" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599347108532" />
-    <state x="542" y="261" key="FileChooserDialogImpl" timestamp="1599346502909">
+    <state width="1877" height="215" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603761555119" />
+    <state width="1877" height="215" key="GridCell.Tab.0.left" timestamp="1603761555119">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="542" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599346502909" />
-    <state width="1877" height="317" key="GridCell.Tab.0.bottom" timestamp="1603753955139">
+    <state width="1877" height="215" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603761555119" />
+    <state width="1877" height="215" key="GridCell.Tab.0.right" timestamp="1603761555119">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603753955139" />
-    <state width="1877" height="317" key="GridCell.Tab.0.center" timestamp="1603753955139">
+    <state width="1877" height="215" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603761555119" />
+    <state width="1877" height="215" key="GridCell.Tab.1.bottom" timestamp="1603761555008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603753955139" />
-    <state width="1877" height="317" key="GridCell.Tab.0.left" timestamp="1603753955139">
+    <state width="1877" height="215" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603761555008" />
+    <state width="1877" height="215" key="GridCell.Tab.1.center" timestamp="1603761555008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603753955139" />
-    <state width="1877" height="317" key="GridCell.Tab.0.right" timestamp="1603753955139">
+    <state width="1877" height="215" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603761555008" />
+    <state width="1877" height="215" key="GridCell.Tab.1.left" timestamp="1603761555008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603753955139" />
-    <state width="1877" height="317" key="GridCell.Tab.1.bottom" timestamp="1601265517682">
+    <state width="1877" height="215" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603761555008" />
+    <state width="1877" height="215" key="GridCell.Tab.1.right" timestamp="1603761555008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601265517682" />
-    <state width="1877" height="317" key="GridCell.Tab.1.center" timestamp="1601265517682">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="317" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601265517682" />
-    <state width="1877" height="317" key="GridCell.Tab.1.left" timestamp="1601265517682">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="317" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601265517682" />
-    <state width="1877" height="317" key="GridCell.Tab.1.right" timestamp="1601265517682">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="317" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1601265517682" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1599346909043">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599346909043" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1599346536859">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599346536859" />
-    <state x="642" y="459" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog" timestamp="1599346504255">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="642" y="459" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599346504255" />
-    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599346078801">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1599346078801" />
+    <state width="1877" height="215" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603761555008" />
   </component>
 </project>

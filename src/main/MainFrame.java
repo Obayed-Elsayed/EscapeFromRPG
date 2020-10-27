@@ -15,8 +15,8 @@ public class MainFrame extends JFrame {
 		Integer heightY = widthX/16*9;
 		LevelManager.setScreenSize(widthX,heightY);
 		this.initializeWindow(widthX, heightY);
-		canvas = new GraphicHandler(this);
-		canvas.start_animation_process();
+		canvas = new GraphicHandler(this, widthX, heightY);
+
 		this.addKeyListener(canvas.getPlayer());
 		this.add(canvas);
 	}
