@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -19,12 +20,13 @@ import entity.*;
 import levelMaker.LevelManager;
 import sun.plugin2.gluegen.runtime.BufferFactory;
 
-public class GraphicHandler extends JPanel {
+public class GraphicHandler extends Canvas {
 
     private java.util.Timer animationTimer = new java.util.Timer();
 
     public ArrayList<BufferedImage> images;
     public BufferedImage displayedImage;
+    private BufferStrategy bs;
 
     // Rasters = rectangular grid / array of pixels
     private int [] pixels;
@@ -44,6 +46,8 @@ public class GraphicHandler extends JPanel {
 
     public MainFrame frame;
 
+    public int [] tiles = new int [64*64];
+    private Random random = new Random();
     // Schedueled task manager
     ScheduledExecutorService ses;
     Runnable walkAnimation;
@@ -55,6 +59,10 @@ public class GraphicHandler extends JPanel {
 
         displayedImage = new BufferedImage(this.width,this.height,BufferedImage.TYPE_INT_RGB);
         calc_pixels = ((DataBufferInt)displayedImage.getRaster().getDataBuffer()).getData();
+
+        for (int i = 0; i < 64 * 64; i++) {
+            tiles[i] = random.nextInt(0xffffff);
+        }
     }
     private void load_sprites(){
          ArrayList<String> names = getSpriteNames("Sprite-0001Walking",7);
@@ -74,22 +82,20 @@ public class GraphicHandler extends JPanel {
     }
 
     public void render() {
-        BufferStrategy bs = frame.getBufferStrategy();
-        if (bs == null) {
-            frame.createBufferStrategy(3);
+
+        if (this.bs == null) {
+            this.createBufferStrategy(3);
+            this.bs = this.getBufferStrategy();
             return;
         }
-        counter++;
-        if(counter %100 == 0){
-            timer++;
-        }
+
         this.clear();
         this.display();
         for(int i =0; i <calc_pixels.length; i++){
             this.calc_pixels[i] = this.pixels[i];
         }
 
-        Graphics g = bs.getDrawGraphics();
+        Graphics g = this.bs.getDrawGraphics();
         g.setColor(Color.BLACK);
         g.fillRect(0,0,frame.getWidth(),frame.getHeight());
 
@@ -99,10 +105,13 @@ public class GraphicHandler extends JPanel {
         bs.show();
     }
 
-    public void display(){
-        for (int y=0; y <height; y++) {
-            for (int x=0; x <width; x++) {
-                pixels[300+timer*width] = 0xff00ff;
+    public void display() {
+        for (int y = 0; y < height; y++) {
+            if (y < 0 || y >= height) break;
+            for (int x = 0; x < width; x++) {
+                if (x < 0 || x >= width) break;
+                int tileIndex = x/56 + y/56 * 64;
+                pixels[x + y * width] = tiles[tileIndex];
             }
         }
     }
