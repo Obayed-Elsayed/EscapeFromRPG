@@ -44,7 +44,7 @@ public class Runner implements Runnable {
                 delta--;
                 ticks++;
             }
-            this.mainFrame.canvas.render();
+            this.mainFrame.canvas.render(this.mainFrame.canvas.map_x_off, this.mainFrame.canvas.map_y_off);
             frames++;
             if(System.currentTimeMillis() - timer > 1000){
                 timer+=1000;
