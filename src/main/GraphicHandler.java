@@ -18,8 +18,12 @@ import javax.imageio.*;
 // local imports
 import entity.*;
 import levelMaker.LevelManager;
+import main.graphics.Sprite;
+import main.input.InputManager;
 import sun.plugin2.gluegen.runtime.BufferFactory;
 
+// TODO: rename this class appropriately like GameManager?
+// TODO: Remove useless imports
 public class GraphicHandler extends Canvas {
 
     private java.util.Timer animationTimer = new java.util.Timer();
@@ -35,26 +39,14 @@ public class GraphicHandler extends Canvas {
     private int width;
     private int height;
 
-    public ArrayList<Entity> entities = new ArrayList<Entity>();
-    public String rel_path = "src/Resources/sprites/walking";
-    private Player player;
-    private LevelManager levelManager;
-    private Integer imageCounter;
-
-    private int timer;
-    private int counter;
-
-    public MainFrame frame;
+    private MainFrame frame;
+    private InputManager inputManager;
 
     private final int MAP_SIZE = 64;
     public int[] tiles = new int[64 * 64];
     private Random random = new Random();
     public int map_x_off = 0;
     public int map_y_off = 0;
-
-    // Schedueled task manager
-    ScheduledExecutorService ses;
-    Runnable walkAnimation;
 
     public GraphicHandler(MainFrame frame, int width, int height) {
         this.frame = frame;
@@ -68,24 +60,17 @@ public class GraphicHandler extends Canvas {
         for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++) {
             tiles[i] = random.nextInt(0xffffff);
         }
+        inputManager = new InputManager();
+        addKeyListener(inputManager);
     }
 
-    private void load_sprites() {
-        ArrayList<String> names = getSpriteNames("Sprite-0001Walking", 7);
-        try {
-            for (int i = 0; i < 7; i++) {
-                images.add(ImageIO.read(new File(rel_path + "/" + names.get(i))));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void tick() {
+        inputManager.update();
+        if (inputManager.left) this.map_x_off--;
+        if (inputManager.right) this.map_x_off++;
+        if (inputManager.up) this.map_y_off--;
+        if (inputManager.down) this.map_y_off++;
 
-    }
-
-    public void start_animation_process() {
-        // Animate
-        //ses.schedule(walkAnimation, 125, TimeUnit.MILLISECONDS);
-        ses.scheduleAtFixedRate(walkAnimation, 0, 125, TimeUnit.MILLISECONDS);
     }
 
     public void render(int offsetx, int offsety) {
@@ -111,17 +96,19 @@ public class GraphicHandler extends Canvas {
         g.dispose();
         bs.show();
     }
-
     // bit wise shift is faster than dividing by 32
+    // bit wise & for resetting map rendering
+    // Helpful reminder that the difference between y=0 and y=1 is (1* width of screen), because linear array
     public void display(int offsetx, int offsety) {
         for (int y = 0; y < height; y++) {
             //if (y < 0 || y >= height) break;
-            int map_y_movement = y;
+            int map_y_movement = y + offsety;
             for (int x = 0; x < width; x++) {
                 //if (x < 0 || x >= height) break;
                 int map_x_movement = x + offsetx;
                 int tileIndex = ((map_x_movement >> 5) & (MAP_SIZE - 1)) + ((map_y_movement >> 5) & (MAP_SIZE - 1)) * MAP_SIZE;
-                pixels[x + y * width] = tiles[tileIndex];
+                //pixels[x + y * width] = tiles[tileIndex];
+                pixels[x + y * width] = Sprite.idle_ghost.sprite_data[(x&31) + (y&31) * Sprite.idle_ghost.SIZE];
             }
         }
     }
@@ -132,23 +119,9 @@ public class GraphicHandler extends Canvas {
         }
     }
 
-    public void tick() {
-        this.map_x_off++;
-        this.map_y_off++;
-    }
-
     public Player getPlayer() {
         //return this.player;
         return null;
-    }
-
-    public ArrayList<String> getSpriteNames(String name, Integer num_images) {
-        ArrayList<String> image_names = new ArrayList<>();
-
-        for (int i = 0; i < num_images; i++) {
-            image_names.add(name + Integer.toString(i + 1) + ".png");
-        }
-        return image_names;
     }
 
 }

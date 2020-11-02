@@ -53,13 +53,13 @@ public class Player extends Entity implements KeyListener {
 	public void update(Integer step) {
 
 		// Gravity
-		if(this.getPosition().y <215){
+		if (this.getPosition().y < 215) {
 
 			this.acceleration.y = 0.5;
-			this.velocity.y+= this.acceleration.y;
+			this.velocity.y += this.acceleration.y;
 
-		}else{
-			this.jumps=0;
+		} else {
+			this.jumps = 0;
 			this.acceleration.y = 0;
 			this.velocity.y = 0;
 		}
@@ -69,7 +69,7 @@ public class Player extends Entity implements KeyListener {
 			this.friction.scale(0.125);
 			System.out.println(this.friction.toString());
 			this.velocity.x+= this.friction.x;
-		}
+		 }
 
 		if (Key.isAnykeyPressed) {
 			if (Key.up.isDown) {
