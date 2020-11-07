@@ -18,6 +18,7 @@ import javax.imageio.*;
 // local imports
 import entity.*;
 import levelMaker.LevelManager;
+import levelMaker.Tile;
 import main.graphics.Sprite;
 import main.input.InputManager;
 import sun.plugin2.gluegen.runtime.BufferFactory;
@@ -101,17 +102,31 @@ public class GraphicHandler extends Canvas {
     // Helpful reminder that the difference between y=0 and y=1 is (1* width of screen), because linear array
     public void display(int offsetx, int offsety) {
         for (int y = 0; y < height; y++) {
-            //if (y < 0 || y >= height) break;
-            int map_y_movement = y + offsety;
+            int yPixel = y + offsety;
+            if (yPixel < 0 || yPixel >= height) continue;
             for (int x = 0; x < width; x++) {
-                //if (x < 0 || x >= height) break;
-                int map_x_movement = x + offsetx;
-                int tileIndex = ((map_x_movement >> 5) & (MAP_SIZE - 1)) + ((map_y_movement >> 5) & (MAP_SIZE - 1)) * MAP_SIZE;
+                int xPixel = x + offsetx;
+                if (xPixel < 0 || xPixel >= width) continue;
+                //int tileIndex = ((xPixel >> 5) & (MAP_SIZE - 1)) + ((yPixel >> 5) & (MAP_SIZE - 1)) * MAP_SIZE;
                 //pixels[x + y * width] = tiles[tileIndex];
-                pixels[x + y * width] = Sprite.idle_ghost.sprite_data[(x&31) + (y&31) * Sprite.idle_ghost.SIZE];
+                pixels[(xPixel) + (yPixel) * width] = Sprite.idle_ghost.sprite_data[(x & 31) + (y & 31) * Sprite.idle_ghost.SIZE];
             }
         }
     }
+
+    public void displayMap(int xPos, int yPos, Tile tile) {
+        for (int y = 0; y < tile.sprite.SIZE; y++) {
+            int yAbsolute = y + yPos;
+            for (int x = 0; x < tile.sprite.SIZE; x++) {
+                int xAbsolute = x + xPos;
+                if (xAbsolute < 0 || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) {
+                    break;
+                }
+                pixels[xAbsolute + yAbsolute * width] = tile.sprite.sprite_data[x + y * tile.sprite.SIZE];
+            }
+        }
+    }
+
 
     public void clear() {
         for (int i = 0; i < pixels.length; i++) {

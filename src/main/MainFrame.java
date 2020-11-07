@@ -13,12 +13,12 @@ public class MainFrame extends JFrame {
 
 	public MainFrame(Integer widthX) {
 		Integer heightY = widthX/16*9;
-		LevelManager.setScreenSize(widthX,heightY);
 		this.initializeWindow(widthX, heightY);
 		canvas = new GraphicHandler(this, widthX, heightY);
 
 		this.addKeyListener(canvas.getPlayer());
 		this.add(canvas);
+		this.canvas.requestFocus();
 	}
 
 	private void initializeWindow(Integer widthX, Integer heightY) {

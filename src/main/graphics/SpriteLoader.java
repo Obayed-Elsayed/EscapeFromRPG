@@ -14,6 +14,7 @@ public class SpriteLoader {
     public final int SIZE;
 
     public static SpriteLoader ghost = new SpriteLoader("src/Resources/sprites/ghost/spooky.png", 128);
+    public static SpriteLoader basicTerrain = new SpriteLoader("src/Resources/sprites/terrain/Terrain.png", 160);
 
     public SpriteLoader(String path, int size) {
         this.path = path;

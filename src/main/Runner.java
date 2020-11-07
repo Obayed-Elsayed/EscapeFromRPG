@@ -1,4 +1,5 @@
 package main;
+import java.util.logging.Logger;
 
 public class Runner implements Runnable {
 
@@ -7,6 +8,7 @@ public class Runner implements Runnable {
 
     private boolean running;
     private MainFrame mainFrame;
+    // public static final Logger logger = Logger.getLogger(Runner.class.getName());
     public Runner(){
          this.mainFrame = new MainFrame(960);
     }

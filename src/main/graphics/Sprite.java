@@ -8,7 +8,10 @@ public class Sprite {
     public final int SIZE;
     public int[] sprite_data;
 
+    // Load in sprites here
     public static Sprite idle_ghost = new Sprite(32, 0, 0, SpriteLoader.ghost);
+    public static Sprite voidTile_a = new Sprite(32, 0, 4, SpriteLoader.basicTerrain);
+    public static Sprite voidTile_b = new Sprite(32, 1, 4, SpriteLoader.basicTerrain);
 
     public Sprite(int size, int x, int y, SpriteLoader spriteSheet) { ;
         this.SIZE = size;
@@ -30,6 +33,9 @@ public class Sprite {
         }
     }
 
+    public static void load_sprites(){
+
+    }
 
 
 }
