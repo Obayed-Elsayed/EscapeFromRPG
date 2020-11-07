@@ -3,9 +3,8 @@ package levelMaker;
 import main.GraphicHandler;
 import main.graphics.Sprite;
 
-public class VoidTile extends Tile {
-
-    public VoidTile(Sprite sprite) {
+public class DummyTile extends Tile {
+    public DummyTile(Sprite sprite) {
         super(sprite);
     }
 

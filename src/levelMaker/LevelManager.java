@@ -41,8 +41,30 @@ public class LevelManager {
 
     }
 
-    public void render(int xscroll, int yscroll, GraphicHandler graphics) {
+    public Tile getTile(int x, int y) {
+        if (tiles[x + y * width] == 0) {
+            return Tile.voidTileA;
+        }else if(tiles[x + y * width] == 1){
+            return Tile.voidTileB;
+        }
+        return Tile.solidTile;
+    }
 
+    public void render(int xScroll, int yScroll, GraphicHandler graphics) {
+        // offSet is the location of the player
+        graphics.setOffset(xScroll, yScroll);
+        // defining corner pins for rendering a level
+        // every 32 or 2^5 is one tile -> tile coords
+        int x0 = (xScroll >> 5);
+        int x1 = (xScroll + graphics.width) >> 5;
+        int y0 = (yScroll >> 5);
+        int y1 = (yScroll + graphics.height) >> 5;
+
+        for (int y = y0; y < y1; y++) {
+            for (int x = x0; x < x1; x++) {
+                getTile(x, y).render(x ,y ,graphics);
+            }
+        }
     }
 
 }

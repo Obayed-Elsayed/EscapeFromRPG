@@ -18,6 +18,7 @@ import javax.imageio.*;
 // local imports
 import entity.*;
 import levelMaker.LevelManager;
+import levelMaker.ProceduralLevel;
 import levelMaker.Tile;
 import main.graphics.Sprite;
 import main.input.InputManager;
@@ -37,12 +38,12 @@ public class GraphicHandler extends Canvas {
     private int[] pixels;
 
     private int[] calc_pixels;
-    private int width;
-    private int height;
+    public int width;
+    public int height;
 
     private MainFrame frame;
     private InputManager inputManager;
-
+    private LevelManager testLevel;
     private final int MAP_SIZE = 64;
     public int[] tiles = new int[64 * 64];
     private Random random = new Random();
@@ -63,6 +64,7 @@ public class GraphicHandler extends Canvas {
         }
         inputManager = new InputManager();
         addKeyListener(inputManager);
+        testLevel = new ProceduralLevel(64,64);
     }
 
     public void tick() {
@@ -83,7 +85,8 @@ public class GraphicHandler extends Canvas {
         }
 
         this.clear();
-        this.display(offsetx, offsety);
+        // this.display(offsetx, offsety);
+        this.testLevel.render(offsetx, offsety,this);
         for (int i = 0; i < calc_pixels.length; i++) {
             this.calc_pixels[i] = this.pixels[i];
         }
@@ -115,6 +118,8 @@ public class GraphicHandler extends Canvas {
     }
 
     public void displayMap(int xPos, int yPos, Tile tile) {
+        xPos -= map_x_off;
+        yPos -= map_y_off;
         for (int y = 0; y < tile.sprite.SIZE; y++) {
             int yAbsolute = y + yPos;
             for (int x = 0; x < tile.sprite.SIZE; x++) {
@@ -125,6 +130,11 @@ public class GraphicHandler extends Canvas {
                 pixels[xAbsolute + yAbsolute * width] = tile.sprite.sprite_data[x + y * tile.sprite.SIZE];
             }
         }
+    }
+
+    public void setOffset(int xOff, int yOff){
+        map_x_off = xOff;
+        map_y_off = yOff;
     }
 
 
