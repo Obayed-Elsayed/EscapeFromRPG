@@ -42,6 +42,9 @@ public class LevelManager {
     }
 
     public Tile getTile(int x, int y) {
+        if (x < 0 || y < 0 || x >= width || y >= height) {
+            return Tile.dummyTile;
+        }
         if (tiles[x + y * width] == 0) {
             return Tile.voidTileA;
         }else if(tiles[x + y * width] == 1){
@@ -56,9 +59,9 @@ public class LevelManager {
         // defining corner pins for rendering a level
         // every 32 or 2^5 is one tile -> tile coords
         int x0 = (xScroll >> 5);
-        int x1 = (xScroll + graphics.width) >> 5;
+        int x1 = (xScroll + graphics.width +32) >> 5;
         int y0 = (yScroll >> 5);
-        int y1 = (yScroll + graphics.height) >> 5;
+        int y1 = (yScroll + graphics.height +32) >> 5;
 
         for (int y = y0; y < y1; y++) {
             for (int x = x0; x < x1; x++) {

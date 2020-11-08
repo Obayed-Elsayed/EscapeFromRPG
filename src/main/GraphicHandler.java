@@ -64,15 +64,15 @@ public class GraphicHandler extends Canvas {
         }
         inputManager = new InputManager();
         addKeyListener(inputManager);
-        testLevel = new ProceduralLevel(64,64);
+        testLevel = new ProceduralLevel(64, 64);
     }
 
     public void tick() {
         inputManager.update();
-        if (inputManager.left) this.map_x_off--;
-        if (inputManager.right) this.map_x_off++;
-        if (inputManager.up) this.map_y_off--;
-        if (inputManager.down) this.map_y_off++;
+        if (inputManager.left) this.map_x_off-=5;
+        if (inputManager.right) this.map_x_off+=5;
+        if (inputManager.up) this.map_y_off-=5;
+        if (inputManager.down) this.map_y_off+=5;
 
     }
 
@@ -85,8 +85,8 @@ public class GraphicHandler extends Canvas {
         }
 
         this.clear();
-        // this.display(offsetx, offsety);
-        this.testLevel.render(offsetx, offsety,this);
+        //this.display(offsetx, offsety);
+        this.testLevel.render(offsetx, offsety, this);
         for (int i = 0; i < calc_pixels.length; i++) {
             this.calc_pixels[i] = this.pixels[i];
         }
@@ -100,6 +100,7 @@ public class GraphicHandler extends Canvas {
         g.dispose();
         bs.show();
     }
+
     // bit wise shift is faster than dividing by 32
     // bit wise & for resetting map rendering
     // Helpful reminder that the difference between y=0 and y=1 is (1* width of screen), because linear array
@@ -124,15 +125,18 @@ public class GraphicHandler extends Canvas {
             int yAbsolute = y + yPos;
             for (int x = 0; x < tile.sprite.SIZE; x++) {
                 int xAbsolute = x + xPos;
-                if (xAbsolute < 0 || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) {
+                if (xAbsolute < -tile.sprite.SIZE || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) {
                     break;
+                }
+                if (xAbsolute < 0) {
+                    xAbsolute = 0;
                 }
                 pixels[xAbsolute + yAbsolute * width] = tile.sprite.sprite_data[x + y * tile.sprite.SIZE];
             }
         }
     }
 
-    public void setOffset(int xOff, int yOff){
+    public void setOffset(int xOff, int yOff) {
         map_x_off = xOff;
         map_y_off = yOff;
     }
