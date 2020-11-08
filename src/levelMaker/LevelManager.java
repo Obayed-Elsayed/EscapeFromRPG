@@ -48,9 +48,9 @@ public class LevelManager {
         if (tiles[x + y * width] == 0) {
             return Tile.voidTileA;
         }else if(tiles[x + y * width] == 1){
-            return Tile.voidTileB;
+            return Tile.solidTile;
         }
-        return Tile.solidTile;
+        return Tile.dummyTile;
     }
 
     public void render(int xScroll, int yScroll, GraphicHandler graphics) {
