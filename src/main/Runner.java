@@ -15,7 +15,7 @@ public class Runner implements Runnable {
 
     public synchronized void start() {
         running = true;
-        main = new Thread (this, "Display");
+        main = new Thread (this, "[Display]");
         main.start();
     }
 
@@ -30,7 +30,6 @@ public class Runner implements Runnable {
     }
 
     public void run() {
-
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
         double ns = 1000000000.0/ 60.0;
