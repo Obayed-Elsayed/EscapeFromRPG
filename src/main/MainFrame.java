@@ -16,7 +16,6 @@ public class MainFrame extends JFrame {
 		this.initializeWindow(widthX, heightY);
 		canvas = new GraphicHandler(this, widthX, heightY);
 
-		this.addKeyListener(canvas.getPlayer());
 		this.add(canvas);
 		this.canvas.requestFocus();
 		this.requestFocus();

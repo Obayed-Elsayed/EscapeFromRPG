@@ -1,4 +1,7 @@
 package main;
+import main.graphics.Sprite;
+import main.graphics.SpriteLoader;
+
 import java.util.logging.Logger;
 
 public class Runner implements Runnable {
@@ -30,6 +33,14 @@ public class Runner implements Runnable {
     }
 
     public void run() {
+
+        // wait for assets to load
+        while(true){
+            if(SpriteLoader.verifyAssetsHaveLoaded() && Sprite.verifyAssetsHaveLoaded()) break;
+            System.out.println("Not yet loaded");
+        }
+        System.out.println("Reach");
+
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
         double ns = 1000000000.0/ 60.0;

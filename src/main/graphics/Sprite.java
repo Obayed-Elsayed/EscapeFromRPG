@@ -16,7 +16,8 @@ public class Sprite {
     public static Sprite dummyTile = new Sprite(32, 0x000000);
     public static Sprite solidTile = new Sprite(32, 0x103579);
 
-    public Sprite(int size, int x, int y, SpriteLoader spriteSheet) { ;
+    public Sprite(int size, int x, int y, SpriteLoader spriteSheet) {
+
         this.SIZE = size;
         // Coordinate of sprite in the sprite sheet
         this.x = x * size;
@@ -39,7 +40,7 @@ public class Sprite {
         }
     }
 
-    private void extractSpriteFromSheet(){
+    private void extractSpriteFromSheet() {
 
         for (int y = 0; y < SIZE; y++) {
             for (int x = 0; x < SIZE; x++) {
@@ -48,7 +49,11 @@ public class Sprite {
         }
     }
 
-    public static void load_sprites(){
+    public static boolean verifyAssetsHaveLoaded() {
+        return idle_ghost != null && dummyTile != null && solidTile != null && voidTile_a != null && voidTile_b != null;
+    }
+
+    public static void load_sprites() {
 
     }
 

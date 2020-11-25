@@ -1,48 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="65664000-a040-44fd-aff8-5e7f7057789e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/entity/Mob.java" afterDir="false" />
+    <list default="true" id="46caee54-42d9-4477-ba40-868e0321687d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/input/Key.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Mob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Mob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphics/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphics/SpriteLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphics/SpriteLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1jR7XSnOm88dQu00rhwjRVB1gh4" />
+  <component name="ProjectId" id="1kWpVrfklvFNSOs7hg80BTtG8gn" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,11 +28,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Switched to canvas Bug fix (0.1.1)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
-    <configuration name="Runner" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Runner" />
       <module name="EscapeFromRPG" />
       <extension name="coverage">
@@ -67,112 +45,104 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Runner" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="65664000-a040-44fd-aff8-5e7f7057789e" name="Default Changelist" comment="" />
-      <created>1603755089187</created>
+      <changelist id="46caee54-42d9-4477-ba40-868e0321687d" name="Default Changelist" comment="" />
+      <created>1605826228997</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1603755089187</updated>
+      <updated>1605826228997</updated>
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603755203014">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605827979253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603755203014" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1604708750411">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605827979253" />
+    <state width="1877" height="376" key="GridCell.Tab.0.bottom" timestamp="1605838953980">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604708750411" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604174507489">
+    <state width="1877" height="376" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605838953980" />
+    <state width="1877" height="376" key="GridCell.Tab.0.center" timestamp="1605838953980">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604174507489" />
-    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1604882841512">
+    <state width="1877" height="376" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605838953980" />
+    <state width="1877" height="376" key="GridCell.Tab.0.left" timestamp="1605838953980">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604882841512" />
-    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1604882841512">
+    <state width="1877" height="376" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605838953980" />
+    <state width="1877" height="376" key="GridCell.Tab.0.right" timestamp="1605838953980">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604882841512" />
-    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1604882841512">
+    <state width="1877" height="376" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605838953980" />
+    <state width="1877" height="376" key="GridCell.Tab.1.bottom" timestamp="1605838953872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604882841512" />
-    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1604882841512">
+    <state width="1877" height="376" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605838953872" />
+    <state width="1877" height="376" key="GridCell.Tab.1.center" timestamp="1605838953871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604882841512" />
-    <state width="1877" height="234" key="GridCell.Tab.1.bottom" timestamp="1604882841509">
+    <state width="1877" height="376" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605838953871" />
+    <state width="1877" height="376" key="GridCell.Tab.1.left" timestamp="1605838953871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604882841509" />
-    <state width="1877" height="234" key="GridCell.Tab.1.center" timestamp="1604882841509">
+    <state width="1877" height="376" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605838953871" />
+    <state width="1877" height="376" key="GridCell.Tab.1.right" timestamp="1605838953871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604882841509" />
-    <state width="1877" height="234" key="GridCell.Tab.1.left" timestamp="1604882841509">
+    <state width="1877" height="376" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605838953871" />
+    <state width="1877" height="376" key="GridCell.Tab.2.bottom" timestamp="1605827910392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604882841509" />
-    <state width="1877" height="234" key="GridCell.Tab.1.right" timestamp="1604882841509">
+    <state width="1877" height="376" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605827910392" />
+    <state width="1877" height="376" key="GridCell.Tab.2.center" timestamp="1605827910392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604882841509" />
-    <state width="1877" height="234" key="GridCell.Tab.2.bottom" timestamp="1604880914239">
+    <state width="1877" height="376" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605827910392" />
+    <state width="1877" height="376" key="GridCell.Tab.2.left" timestamp="1605827910392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604880914239" />
-    <state width="1877" height="234" key="GridCell.Tab.2.center" timestamp="1604880914239">
+    <state width="1877" height="376" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605827910392" />
+    <state width="1877" height="376" key="GridCell.Tab.2.right" timestamp="1605827910392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604880914239" />
-    <state width="1877" height="234" key="GridCell.Tab.2.left" timestamp="1604880914239">
+    <state width="1877" height="376" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605827910392" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1605826797030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604880914239" />
-    <state width="1877" height="234" key="GridCell.Tab.2.right" timestamp="1604880914239">
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605826797030" />
+    <state x="529" y="256" width="861" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1605827787709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604880914239" />
-    <state x="616" y="222" key="RollbackChangesDialog" timestamp="1604810811801">
+    <state x="529" y="256" width="861" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605827787709" />
+    <state x="667" y="73" width="585" height="894" key="find.popup" timestamp="1605826741321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="222" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604810811801" />
-    <state x="2269" y="0" width="1451" height="750" key="dock-window-1" timestamp="1604716086437">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2269" y="0" width="1451" height="750" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604716086437" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1604257154870">
+    <state x="667" y="73" width="585" height="894" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605826741321" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1605826906085">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="600" height="428" key="javadoc.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604257154870" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604807812875">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604807812875" />
+    <state width="600" height="428" key="javadoc.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605826906085" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-defaults>
+        <breakpoint suspend="THREAD" type="java-line" />
+      </breakpoints-defaults>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/EscapeFromRPG$Runner.ic" NAME="Runner Coverage Results" MODIFIED="1604880715075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/EscapeFromRPG$Runner.ic" NAME="Runner Coverage Results" MODIFIED="1605828560900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>main.*</FILTER>
     </SUITE>
   </component>
