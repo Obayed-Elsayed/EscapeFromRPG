@@ -14,11 +14,11 @@ public class Entity {
     private Integer mass;
     private static Integer entityCount = 0;
     private static Integer IDCount = 0;
+    private Integer ID;
     protected final Random random = new Random();
     protected LevelManager level;
-    private Integer ID;
 
-    int x, y;
+    public int x, y;
 
     // TODO get rid of the vector based movement for this game
     protected Vector2 position;

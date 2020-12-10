@@ -32,21 +32,21 @@ public class GraphicHandler extends Canvas {
 
     public ArrayList<BufferedImage> images;
     public BufferedImage displayedImage;
-    private BufferStrategy bs;
+    public Player player;
 
     // Rasters = rectangular grid / array of pixels
+    private BufferStrategy bs;
     private int[] pixels;
-
     private int[] calc_pixels;
-    public int width;
-    public int height;
-
     private MainFrame frame;
     private InputManager inputManager;
     private LevelManager testLevel;
-    private final int MAP_SIZE = 64;
-    public int[] tiles = new int[64 * 64];
     private Random random = new Random();
+    private final int MAP_SIZE = 64;
+
+    public int width;
+    public int height;
+    public int[] tiles = new int[64 * 64];
     public int map_x_off = 0;
     public int map_y_off = 0;
 
@@ -65,6 +65,7 @@ public class GraphicHandler extends Canvas {
         inputManager = new InputManager();
         addKeyListener(inputManager);
         testLevel = new ProceduralLevel(64, 64);
+        player = new Player(inputManager);
     }
 
     public void tick() {
@@ -73,6 +74,7 @@ public class GraphicHandler extends Canvas {
         if (inputManager.right) this.map_x_off+=5;
         if (inputManager.up) this.map_y_off-=5;
         if (inputManager.down) this.map_y_off+=5;
+        player.update();
 
     }
 
@@ -92,9 +94,6 @@ public class GraphicHandler extends Canvas {
         }
 
         Graphics g = this.bs.getDrawGraphics();
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, frame.getWidth(), frame.getHeight());
-
         g.drawImage(displayedImage, 0, 0, this.width, this.height, null);
 
         g.dispose();
