@@ -88,7 +88,10 @@ public class GraphicHandler extends Canvas {
 
         this.clear();
         //this.display(offsetx, offsety);
-        this.testLevel.render(offsetx, offsety, this);
+        int xScroll = offsetx - this.width/2;
+        int yScroll = offsety - this.height/2;
+        this.testLevel.render(xScroll, yScroll, this);
+        this.player.render(this);
         for (int i = 0; i < calc_pixels.length; i++) {
             this.calc_pixels[i] = this.pixels[i];
         }
@@ -112,7 +115,7 @@ public class GraphicHandler extends Canvas {
                 if (xPixel < 0 || xPixel >= width) continue;
                 //int tileIndex = ((xPixel >> 5) & (MAP_SIZE - 1)) + ((yPixel >> 5) & (MAP_SIZE - 1)) * MAP_SIZE;
                 //pixels[x + y * width] = tiles[tileIndex];
-                pixels[(xPixel) + (yPixel) * width] = Sprite.idle_ghost.sprite_data[(x & 31) + (y & 31) * Sprite.idle_ghost.SIZE];
+                pixels[(xPixel) + (yPixel) * width] = Sprite.idle_player_01.sprite_data[(x & 31) + (y & 31) * Sprite.idle_player_01.SIZE];
             }
         }
     }
@@ -131,6 +134,24 @@ public class GraphicHandler extends Canvas {
                     xAbsolute = 0;
                 }
                 pixels[xAbsolute + yAbsolute * width] = tile.sprite.sprite_data[x + y * tile.sprite.SIZE];
+            }
+        }
+    }
+
+    public void renderSprite(int xPos, int yPos, Sprite sprite) {
+        xPos -= map_x_off;
+        yPos -= map_y_off;
+        for (int y = 0; y < sprite.SIZE; y++) {
+            int yAbsolute = y + yPos;
+            for (int x = 0; x < sprite.SIZE; x++) {
+                int xAbsolute = x + xPos;
+                if (xAbsolute < -sprite.SIZE || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) {
+                    break;
+                }
+                if (xAbsolute < 0) {
+                    xAbsolute = 0;
+                }
+                pixels[xAbsolute + yAbsolute * width] = sprite.sprite_data[x + y * sprite.SIZE];
             }
         }
     }

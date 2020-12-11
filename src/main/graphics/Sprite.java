@@ -5,12 +5,12 @@ public class Sprite {
     private int y;
     private SpriteLoader spriteSheet;
 
-    public final int SIZE;
+    public int SIZE;
     public int[] sprite_data;
 
     // Load in sprites here
     // TODO better naming convention for tile sprites
-    public static Sprite idle_ghost = new Sprite(32, 0, 0, SpriteLoader.ghost);
+    public static Sprite idle_player_01 = new Sprite(32, 0, 0, SpriteLoader.ghost);
     public static Sprite voidTile_a = new Sprite(32, 0, 4, SpriteLoader.basicTerrain);
     public static Sprite voidTile_b = new Sprite(32, 1, 4, SpriteLoader.basicTerrain);
     public static Sprite dummyTile = new Sprite(32, 0x000000);
@@ -34,10 +34,19 @@ public class Sprite {
         setColour(colour);
     }
 
+    public Sprite(){
+
+    }
+
     private void setColour(int colour) {
         for (int i = 0; i < SIZE * SIZE; i++) {
             sprite_data[i] = colour;
         }
+    }
+
+    public static void copy(Sprite original, Sprite copy ){
+        copy.SIZE = original.SIZE;
+        copy.sprite_data = original.sprite_data;
     }
 
     private void extractSpriteFromSheet() {
@@ -50,7 +59,7 @@ public class Sprite {
     }
 
     public static boolean verifyAssetsHaveLoaded() {
-        return idle_ghost != null && dummyTile != null && solidTile != null && voidTile_a != null && voidTile_b != null;
+        return idle_player_01 != null && dummyTile != null && solidTile != null && voidTile_a != null && voidTile_b != null;
     }
 
     public static void load_sprites() {
