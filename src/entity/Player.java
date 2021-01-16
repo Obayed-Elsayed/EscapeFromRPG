@@ -26,7 +26,7 @@ public class Player extends Mob {
     }
 
     public void render(GraphicHandler graphic) {
-        graphic.renderSprite(this.x, this.y,Sprite.idle_player_01);
+        graphic.renderPlayer(this.x, this.y,Sprite.new_player_flipped);
     }
 
     public void update() {

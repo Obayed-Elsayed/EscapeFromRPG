@@ -11,6 +11,8 @@ public class Sprite {
     // Load in sprites here
     // TODO better naming convention for tile sprites
     public static Sprite idle_player_01 = new Sprite(32, 0, 0, SpriteLoader.ghost);
+    public static Sprite new_player = new Sprite(32, 0, 0, SpriteLoader.player_dummy);
+    public static Sprite new_player_flipped = new Sprite(new_player.SIZE, Sprite.flip_sprite(new_player.SIZE, new_player));
     public static Sprite voidTile_a = new Sprite(32, 0, 4, SpriteLoader.basicTerrain);
     public static Sprite voidTile_b = new Sprite(32, 1, 4, SpriteLoader.basicTerrain);
     public static Sprite dummyTile = new Sprite(32, 0x000000);
@@ -34,7 +36,12 @@ public class Sprite {
         setColour(colour);
     }
 
-    public Sprite(){
+    public Sprite(int size, int[] data) {
+        this.sprite_data = data;
+        this.SIZE = size;
+    }
+
+    public Sprite() {
 
     }
 
@@ -44,7 +51,7 @@ public class Sprite {
         }
     }
 
-    public static void copy(Sprite original, Sprite copy ){
+    public static void copy(Sprite original, Sprite copy) {
         copy.SIZE = original.SIZE;
         copy.sprite_data = original.sprite_data;
     }
@@ -64,6 +71,22 @@ public class Sprite {
 
     public static void load_sprites() {
 
+    }
+
+    public static int[] flip_sprite(int sprite_size, Sprite sprite) {
+
+        int[] flipped_sprite_data = new int[sprite_size * sprite_size];
+
+        for(int j =5; j >= 0; j--){
+            System.out.print(j);
+        }
+        //sprite size = 32
+        for (int i = 0; i < sprite_size; i++) {
+            for (int j = sprite_size-1; j >= 0; j--) {
+                flipped_sprite_data[(sprite_size - (j+1)) + (i * sprite_size) ] = sprite.sprite_data[j + (i * sprite_size)];
+            }
+        }
+        return flipped_sprite_data;
     }
 
 

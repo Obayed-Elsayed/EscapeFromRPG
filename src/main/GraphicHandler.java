@@ -87,9 +87,10 @@ public class GraphicHandler extends Canvas {
         }
 
         this.clear();
-        //this.display(offsetx, offsety);
+        // whereas this offset is the player position
         int xScroll = offsetx - this.width/2;
         int yScroll = offsety - this.height/2;
+//        this.display(offsetx,offsety);
         this.testLevel.render(xScroll, yScroll, this);
         this.player.render(this);
         for (int i = 0; i < calc_pixels.length; i++) {
@@ -138,7 +139,7 @@ public class GraphicHandler extends Canvas {
         }
     }
 
-    public void renderSprite(int xPos, int yPos, Sprite sprite) {
+    public void renderPlayer(int xPos, int yPos, Sprite sprite) {
         xPos -= map_x_off;
         yPos -= map_y_off;
         for (int y = 0; y < sprite.SIZE; y++) {
@@ -151,7 +152,11 @@ public class GraphicHandler extends Canvas {
                 if (xAbsolute < 0) {
                     xAbsolute = 0;
                 }
-                pixels[xAbsolute + yAbsolute * width] = sprite.sprite_data[x + y * sprite.SIZE];
+                int colour = sprite.sprite_data[x + y * sprite.SIZE];
+                // Render everything in sprite except background!
+                if (colour != 0xFFFF00FF){
+                    pixels[xAbsolute + yAbsolute * width] = sprite.sprite_data[x + y * sprite.SIZE];
+                }
             }
         }
     }
