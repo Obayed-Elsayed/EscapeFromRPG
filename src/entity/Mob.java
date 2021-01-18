@@ -13,8 +13,8 @@ public abstract class Mob extends Entity {
         // 0 up 1 east 2 south 3 west > compass
         if (Xin > 0) this.dir = 1;
         if (Xin < 0) this.dir = 3;
-        if (Xin > 0) this.dir = 2;
-        if (Xin < 0) this.dir = 0;
+        if (Yin > 0) this.dir = 2;
+        if (Yin < 0) this.dir = 0;
         if(!collision()){
             this.x +=Xin;
             this.y +=Yin;

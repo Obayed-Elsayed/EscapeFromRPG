@@ -43,6 +43,7 @@ public class Runner implements Runnable {
 
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
+        // 1e9/ 60
         double ns = 1000000000.0/ 60.0;
         double delta = 0;
         int frames = 0;
@@ -70,6 +71,7 @@ public class Runner implements Runnable {
     public static void main(String[] args) {
         Runner game = new Runner();
         game.start();
+
     }
 
 }

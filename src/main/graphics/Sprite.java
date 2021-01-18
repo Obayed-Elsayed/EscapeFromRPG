@@ -10,9 +10,24 @@ public class Sprite {
 
     // Load in sprites here
     // TODO better naming convention for tile sprites
+    public static Sprite right_player1 = new Sprite(32, 0, 0, SpriteLoader.player_dummy2);
+    public static Sprite right_player2 = new Sprite(32, 1, 0, SpriteLoader.player_dummy2);
+    public static Sprite right_player3 = new Sprite(32, 2, 0, SpriteLoader.player_dummy2);
+    public static Sprite right_player4 = new Sprite(32, 3, 0, SpriteLoader.player_dummy2);
+    public static Sprite right_player5 = new Sprite(32, 4, 0, SpriteLoader.player_dummy2);
+    public static Sprite right_player6 = new Sprite(32, 0, 1, SpriteLoader.player_dummy2);
+
+    public static Sprite player_right_cycle[] =
+
+            {
+                    right_player1, right_player2, right_player3, right_player4, right_player4, right_player5, right_player6
+            };
+
+    public static Sprite front_player = new Sprite(32, 1, 3, SpriteLoader.player_dummy2);
+    public static Sprite left_player = new Sprite(right_player1.SIZE, Sprite.flip_sprite(right_player1.SIZE, right_player1));
+
     public static Sprite idle_player_01 = new Sprite(32, 0, 0, SpriteLoader.ghost);
-    public static Sprite new_player = new Sprite(32, 0, 0, SpriteLoader.player_dummy);
-    public static Sprite new_player_flipped = new Sprite(new_player.SIZE, Sprite.flip_sprite(new_player.SIZE, new_player));
+
     public static Sprite voidTile_a = new Sprite(32, 0, 4, SpriteLoader.basicTerrain);
     public static Sprite voidTile_b = new Sprite(32, 1, 4, SpriteLoader.basicTerrain);
     public static Sprite dummyTile = new Sprite(32, 0x000000);
@@ -77,13 +92,10 @@ public class Sprite {
 
         int[] flipped_sprite_data = new int[sprite_size * sprite_size];
 
-        for(int j =5; j >= 0; j--){
-            System.out.print(j);
-        }
         //sprite size = 32
         for (int i = 0; i < sprite_size; i++) {
-            for (int j = sprite_size-1; j >= 0; j--) {
-                flipped_sprite_data[(sprite_size - (j+1)) + (i * sprite_size) ] = sprite.sprite_data[j + (i * sprite_size)];
+            for (int j = sprite_size - 1; j >= 0; j--) {
+                flipped_sprite_data[(sprite_size - (j + 1)) + (i * sprite_size)] = sprite.sprite_data[j + (i * sprite_size)];
             }
         }
         return flipped_sprite_data;
