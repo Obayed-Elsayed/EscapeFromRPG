@@ -17,10 +17,23 @@ public class Sprite {
     public static Sprite right_player5 = new Sprite(32, 4, 0, SpriteLoader.player_dummy2);
     public static Sprite right_player6 = new Sprite(32, 0, 1, SpriteLoader.player_dummy2);
 
+    public static Sprite scaled_player1 = Sprite.scale(right_player1,3);
+    public static Sprite scaled_player2 = Sprite.scale(right_player2,3);
+    public static Sprite scaled_player3 = Sprite.scale(right_player3,3);
+    public static Sprite scaled_player4 = Sprite.scale(right_player4,3);
+    public static Sprite scaled_player5 = Sprite.scale(right_player5,3);
+    public static Sprite scaled_player6 = Sprite.scale(right_player6,3);
+
     public static Sprite player_right_cycle[] =
 
             {
                     right_player1, right_player2, right_player3, right_player4, right_player4, right_player5, right_player6
+            };
+
+    public static Sprite player_scaled_cycle[] =
+
+            {
+                    scaled_player1, scaled_player2, scaled_player3, scaled_player4, scaled_player4, scaled_player5, scaled_player6
             };
 
     public static Sprite front_player = new Sprite(32, 1, 3, SpriteLoader.player_dummy2);
@@ -99,6 +112,26 @@ public class Sprite {
             }
         }
         return flipped_sprite_data;
+
+
+    }
+    public static Sprite scale(Sprite sprite, int scale) {
+        int scaled_size = scale * sprite.SIZE;
+        int[] scaled_data = new int[scaled_size * scaled_size];
+
+        for (int y_og = 0; y_og < sprite.SIZE; y_og++) {
+            for (int x_og = 0; x_og < sprite.SIZE; x_og++) {
+                for(int j = 0; j < scale ; j++){
+                    for(int i = 0; i < scale ; i++){
+//                        int debug1 =(x_og * scale +i);
+//                        int debug2 =((y_og * scaled_size * scale  +j*scaled_size));
+                        scaled_data[(x_og * scale +i) + (y_og * scaled_size * scale  +j*scaled_size)] = sprite.sprite_data[x_og + y_og * sprite.SIZE];
+                    }
+                }
+            }
+        }
+        return new Sprite(scaled_size, scaled_data);
+
     }
 
 

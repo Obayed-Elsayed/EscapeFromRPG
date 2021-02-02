@@ -35,7 +35,7 @@ public class SpriteLoader {
             // scans horizontally, so scan size = width
             image.getRGB(0,0,image.getWidth(),image.getHeight(),image_data,0,image.getWidth());
         } catch (IOException e) {
-            System.out.println("Failed to load assets ");
+            System.out.println("\n Failed to load assets \n");
             e.printStackTrace();
         }
     }
