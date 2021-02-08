@@ -18,6 +18,7 @@ import javax.imageio.*;
 // local imports
 import entity.*;
 import levelMaker.LevelManager;
+import levelMaker.MapSpawner;
 import levelMaker.ProceduralLevel;
 import levelMaker.Tile;
 import main.graphics.Sprite;
@@ -41,8 +42,9 @@ public class GraphicHandler extends Canvas {
     private MainFrame frame;
     private InputManager inputManager;
     private LevelManager testLevel;
+    private LevelManager bitLevel;
     private Random random = new Random();
-    private final int MAP_SIZE = 64;
+//    private final int MAP_SIZE = 64;
 
     public int width;
     public int height;
@@ -59,12 +61,13 @@ public class GraphicHandler extends Canvas {
         displayedImage = new BufferedImage(this.width, this.height, BufferedImage.TYPE_INT_RGB);
         calc_pixels = ((DataBufferInt) displayedImage.getRaster().getDataBuffer()).getData();
 
-        for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++) {
-            tiles[i] = random.nextInt(0xffffff);
-        }
+//        for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++) {
+//            tiles[i] = random.nextInt(0xffffff);
+//        }
         inputManager = new InputManager();
         addKeyListener(inputManager);
         testLevel = new ProceduralLevel(64, 64);
+        bitLevel = new MapSpawner(128, 128,"src/Resources/sprites/terrain/map.png");
         player = new Player(inputManager);
     }
 
@@ -91,7 +94,8 @@ public class GraphicHandler extends Canvas {
         int xScroll = offsetx - this.width/2;
         int yScroll = offsety - this.height/2;
 //        this.display(offsetx,offsety);
-        this.testLevel.render(xScroll, yScroll, this);
+//        this.testLevel.render(xScroll, yScroll, this);
+        this.bitLevel.render(xScroll, yScroll, this);
         this.player.render(this);
         for (int i = 0; i < calc_pixels.length; i++) {
             this.calc_pixels[i] = this.pixels[i];

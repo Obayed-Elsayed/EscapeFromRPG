@@ -21,7 +21,10 @@ public class LevelManager {
         generateLevel();
     }
 
-    public LevelManager(String path) {
+    public LevelManager(int width, int height, String path) {
+        this.width = width;
+        this.height = height;
+        tiles = new int[width * height];
         loadLevel(path);
     }
 
@@ -29,7 +32,7 @@ public class LevelManager {
 
     }
 
-    private void loadLevel(String path) {
+    public void loadLevel(String path) {
 
     }
 

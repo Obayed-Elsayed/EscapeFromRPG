@@ -69,8 +69,17 @@ public class Runner implements Runnable {
     }
 
     public static void main(String[] args) {
-        Runner game = new Runner();
-        game.start();
+
+        Runnable r = new Runnable() {
+            public void run() {
+                Runner game = new Runner();
+                game.start();
+            }
+        };
+
+        // Invoke gui threads and interactive threads with EDT, the magical event dispatch thread
+        javax.swing.SwingUtilities.invokeLater(r);
+
 
     }
 

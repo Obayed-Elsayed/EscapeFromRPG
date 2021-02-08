@@ -15,10 +15,9 @@ public class SpriteLoader {
     public final int xSIZE;
     public final int ySIZE;
 
-    public static SpriteLoader ghost = new SpriteLoader("src/Resources/sprites/ghost/spooky.png", 128, 128);
-    public static SpriteLoader player_dummy = new SpriteLoader("src/Resources/sprites/playerDummy/player_sheet.png", 128, 128);
-    public static SpriteLoader player_dummy2 = new SpriteLoader("src/Resources/sprites/playerDummy/player_sheet2.png", 160, 128);
-    public static SpriteLoader basicTerrain = new SpriteLoader("src/Resources/sprites/terrain/Terrain.png", 128, 160);
+    public static SpriteLoader ghost = new SpriteLoader("/Resources/sprites/ghost/spooky.png", 128, 128);
+    public static SpriteLoader player_dummy2 = new SpriteLoader("/Resources/sprites/playerDummy/player_sheet2.png", 160, 128);
+    public static SpriteLoader basicTerrain = new SpriteLoader("/Resources/sprites/terrain/Terrain.png", 128, 160);
 
     public SpriteLoader(String path, int xSize, int ySize) {
         this.path = path;
@@ -30,9 +29,7 @@ public class SpriteLoader {
 
     private void loadSpriteSheet() {
         try {
-            //BufferedImage image = ImageIO.read(SpriteLoader.class.getResource(path));
-            BufferedImage image = ImageIO.read(new File(path));
-            // scans horizontally, so scan size = width
+            BufferedImage image = ImageIO.read(SpriteLoader.class.getResource(path));
             image.getRGB(0,0,image.getWidth(),image.getHeight(),image_data,0,image.getWidth());
         } catch (IOException e) {
             System.out.println("\n Failed to load assets \n");
