@@ -9,6 +9,7 @@ public class Tile {
 
     public int xCoord, yCoord;
     public Sprite sprite;
+    private boolean solid = false;
 
     public static Tile voidTileA = new VoidTile(Sprite.voidTile_a);
     public static Tile voidTileB = new VoidTile(Sprite.voidTile_b);
@@ -25,7 +26,11 @@ public class Tile {
 
     }
 
+    public void setSolid(boolean solid) {
+        this.solid = solid;
+    }
+
     public boolean solid() {
-        return false;
+        return solid;
     }
 }

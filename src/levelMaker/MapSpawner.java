@@ -42,6 +42,9 @@ public class MapSpawner extends LevelManager {
         // assets.put(colors[i], i);
         for(int i =0;  i < colors.length; i++){
             Tile.map_tiles.add(new GenericTile(new Sprite(32, colors[i])));
+            if(colors[i] == 0xFF595652){
+                Tile.map_tiles.get(i).setSolid(true);
+            }
             assets.put(colors[i], i);
         }
         System.out.println();
@@ -49,8 +52,11 @@ public class MapSpawner extends LevelManager {
         for(int y = 0; y < height; y++){
             for(int x = 0; x < width; x++){
                 tiles[x + y * width] = assets.get(bit_map[x + y * width]);
+                System.out.print(tiles[x + y * width]);
             }
+//            System.out.println();
         }
+//        System.out.println();
 
     }
 

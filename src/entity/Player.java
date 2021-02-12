@@ -41,11 +41,11 @@ public class Player extends Mob {
         if (this.dir == 1) {
             if (moving) {
                 if (animation_counter % 2 == 0) {
-                    graphic.renderPlayer(this.x, this.y, Sprite.player_scaled_cycle[this.cycle_counter++]);
+                    graphic.renderPlayer(this.x, this.y, Sprite.player_right_cycle[this.cycle_counter++]);
                     if (this.cycle_counter > 5) this.cycle_counter = 0;
                 }
             }
-            graphic.renderPlayer(this.x, this.y, Sprite.player_scaled_cycle[this.cycle_counter]);
+            graphic.renderPlayer(this.x, this.y, Sprite.player_right_cycle[this.cycle_counter]);
 
 
         }

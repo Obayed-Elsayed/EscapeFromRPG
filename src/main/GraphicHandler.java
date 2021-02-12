@@ -66,9 +66,10 @@ public class GraphicHandler extends Canvas {
 //        }
         inputManager = new InputManager();
         addKeyListener(inputManager);
-        testLevel = new ProceduralLevel(64, 64);
+//        testLevel = new ProceduralLevel(64, 64);
         bitLevel = new MapSpawner(128, 128,"src/Resources/sprites/terrain/map.png");
-        player = new Player(inputManager);
+        player = new Player(32*6,32*7,inputManager);
+        player.setLevel(bitLevel);
     }
 
     public void tick() {
