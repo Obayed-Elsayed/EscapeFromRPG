@@ -17,6 +17,7 @@ public class Tile {
     public static Tile solidTile = new DummyTile(Sprite.solidTile);
 
     public static ArrayList<Tile> map_tiles = new ArrayList<Tile>();
+    public static Tile [] tile_assets;
 
     public Tile(Sprite sprite) {
         this.sprite = sprite;

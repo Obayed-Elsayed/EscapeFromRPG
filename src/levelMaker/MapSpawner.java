@@ -47,12 +47,14 @@ public class MapSpawner extends LevelManager {
             }
             assets.put(colors[i], i);
         }
-        System.out.println();
+        Tile.tile_assets =  new Tile[Tile.map_tiles.size()];
+        Tile.tile_assets =  Tile.map_tiles.toArray(Tile.tile_assets);
+
 
         for(int y = 0; y < height; y++){
             for(int x = 0; x < width; x++){
                 tiles[x + y * width] = assets.get(bit_map[x + y * width]);
-                System.out.print(tiles[x + y * width]);
+//                System.out.print(tiles[x + y * width]);
             }
 //            System.out.println();
         }
@@ -72,7 +74,8 @@ public class MapSpawner extends LevelManager {
         try{
 
             //System.out.println(tiles[x + y * width]);
-            return Tile.map_tiles.get(tiles[x + y * width]);
+//          return Tile.map_tiles.get(tiles[x + y * width]);
+            return Tile.tile_assets[tiles[x + y * width]];
         }
         catch(Exception e){
            // System.out.println("OH NO");
