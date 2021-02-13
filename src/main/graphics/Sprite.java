@@ -38,8 +38,19 @@ public class Sprite {
 
     public static Sprite front_player = new Sprite(32, 1, 3, SpriteLoader.player_dummy2);
     public static Sprite left_player = new Sprite(right_player1.SIZE, Sprite.flip_sprite(right_player1.SIZE, right_player1));
-
     public static Sprite idle_player_01 = new Sprite(32, 0, 0, SpriteLoader.ghost);
+
+    // Map assets
+    public static Sprite floor = new Sprite(32, 0, 0, SpriteLoader.mapTerrain);
+    public static Sprite leftSideWall = new Sprite(32, 1, 4, SpriteLoader.mapTerrain);
+    public static Sprite rightSideWall = new Sprite(32, 1, 2, SpriteLoader.mapTerrain);
+    public static Sprite upperWall = new Sprite(32, 1, 1, SpriteLoader.mapTerrain);
+    public static Sprite upperWall2 = new Sprite(32, 2, 0, SpriteLoader.mapTerrain);
+    public static Sprite lowerWall = new Sprite(32, 1, 3, SpriteLoader.mapTerrain);
+    public static Sprite tlcorner = new Sprite(32, 1, 5, SpriteLoader.mapTerrain);
+    public static Sprite trcorner = new Sprite(32, 2, 5, SpriteLoader.mapTerrain);
+    public static Sprite blcorner = new Sprite(32, 1, 6, SpriteLoader.mapTerrain);
+    public static Sprite brcorner = new Sprite(32, 2, 6, SpriteLoader.mapTerrain);
 
     public static Sprite voidTile_a = new Sprite(32, 0, 4, SpriteLoader.basicTerrain);
     public static Sprite voidTile_b = new Sprite(32, 1, 4, SpriteLoader.basicTerrain);

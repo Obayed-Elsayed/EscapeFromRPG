@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.TimerTask;
 import java.util.concurrent.Executors;
@@ -61,13 +62,11 @@ public class GraphicHandler extends Canvas {
         displayedImage = new BufferedImage(this.width, this.height, BufferedImage.TYPE_INT_RGB);
         calc_pixels = ((DataBufferInt) displayedImage.getRaster().getDataBuffer()).getData();
 
-//        for (int i = 0; i < MAP_SIZE * MAP_SIZE; i++) {
-//            tiles[i] = random.nextInt(0xffffff);
-//        }
+
         inputManager = new InputManager();
         addKeyListener(inputManager);
 //        testLevel = new ProceduralLevel(64, 64);
-        bitLevel = new MapSpawner(128, 128,"src/Resources/sprites/terrain/map.png");
+        bitLevel = new MapSpawner(128, 128,"src/Resources/sprites/terrain/map2.png");
         player = new Player(32*6,32*7,inputManager);
         player.setLevel(bitLevel);
     }
@@ -94,13 +93,14 @@ public class GraphicHandler extends Canvas {
         // whereas this offset is the player position
         int xScroll = offsetx - this.width/2;
         int yScroll = offsety - this.height/2;
-//        this.display(offsetx,offsety);
-//        this.testLevel.render(xScroll, yScroll, this);
+
         this.bitLevel.render(xScroll, yScroll, this);
         this.player.render(this);
         for (int i = 0; i < calc_pixels.length; i++) {
             this.calc_pixels[i] = this.pixels[i];
         }
+//        Arrays.stream(this.calc_pixels).forEach(pixel-> pixel = this.pi);
+//        this.calc_pixels= this.pixels.clone();
 
         Graphics g = this.bs.getDrawGraphics();
         g.drawImage(displayedImage, 0, 0, this.width, this.height, null);

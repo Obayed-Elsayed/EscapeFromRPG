@@ -18,6 +18,7 @@ public class SpriteLoader {
     public static SpriteLoader ghost = new SpriteLoader("/Resources/sprites/ghost/spooky.png", 128, 128);
     public static SpriteLoader player_dummy2 = new SpriteLoader("/Resources/sprites/playerDummy/player_sheet2.png", 160, 128);
     public static SpriteLoader basicTerrain = new SpriteLoader("/Resources/sprites/terrain/Terrain.png", 128, 160);
+    public static SpriteLoader mapTerrain = new SpriteLoader("/Resources/sprites/terrain/tileset.png", 256, 256);
 
     public SpriteLoader(String path, int xSize, int ySize) {
         this.path = path;

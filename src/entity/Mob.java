@@ -17,8 +17,10 @@ public abstract class Mob extends Entity {
         if (Xin < 0) this.dir = 3;
         if (Yin > 0) this.dir = 2;
         if (Yin < 0) this.dir = 0;
-        if(!collision(Xin, Yin)){
+        if(!collision(Xin, 0)){
             this.x +=Xin;
+        }
+        if(!collision(0, Yin)){
             this.y +=Yin;
         }
     }
@@ -33,8 +35,17 @@ public abstract class Mob extends Entity {
 
     private boolean collision(int xstep, int ystep) {
         //passing pixel number so divide by 32 to get actual tile
-        return level.getTile((x+xstep+16)>>5,(y+ystep+16)>>5).solid();
-        //return false;
+        for (int i =0; i< 4; i++) {
+            int dbg1= i % 2 * 20 + 5;
+            int dbg2= i / 2 * 20 + 8;
+            int xf = ((x + xstep) + dbg1) >> 5;
+            int yf = ((y + ystep) + dbg2) >> 5;
+            if(level.getTile(xf,yf).solid()) return true;
+
+        }
+
+       return false;
+
     }
 
     public void render(GraphicHandler graphic) {
