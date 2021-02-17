@@ -39,6 +39,7 @@ public class Sprite {
     public static Sprite front_player = new Sprite(32, 1, 3, SpriteLoader.player_dummy2);
     public static Sprite left_player = new Sprite(right_player1.SIZE, Sprite.flip_sprite(right_player1.SIZE, right_player1));
     public static Sprite idle_player_01 = new Sprite(32, 0, 0, SpriteLoader.ghost);
+    public static Sprite boom = new Sprite(32, 0, 0, SpriteLoader.projectile);
 
     // Map assets
     public static Sprite floor = new Sprite(32, 0, 0, SpriteLoader.mapTerrain);

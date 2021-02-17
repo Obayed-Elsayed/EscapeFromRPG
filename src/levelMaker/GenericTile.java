@@ -12,6 +12,6 @@ public class GenericTile extends  Tile {
     @Override
     public void render(int x, int y, GraphicHandler graphics) {
 
-        graphics.displayMap(x << 5, y << 5, this);
+        graphics.displaySprite(x << 5, y << 5, this);
     }
 }

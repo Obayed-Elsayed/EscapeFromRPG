@@ -23,7 +23,7 @@ public class Entity {
     // TODO get rid of the vector based movement for this game
     protected Vector2 position;
     protected Vector2 velocity;
-    private boolean removed = false;
+    public boolean removed = false;
 
     public Entity() {
         entityCount++;
@@ -61,6 +61,10 @@ public class Entity {
     }
 
     public void update(){
+
+    }
+
+    public void render(GraphicHandler graphic) {
 
     }
 

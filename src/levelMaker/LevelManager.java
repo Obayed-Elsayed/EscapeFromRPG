@@ -3,6 +3,7 @@ package levelMaker;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.List;
 
 import entity.Entity;
 import main.GraphicHandler;
@@ -13,6 +14,8 @@ public class LevelManager {
     protected int width;
     protected int height;
     protected int[] tiles;
+
+    protected List<Entity> entities = new ArrayList<Entity>();
 
     public LevelManager(int width, int height) {
         this.width = width;
@@ -36,8 +39,18 @@ public class LevelManager {
 
     }
 
-    private void update() {
+    public void addEntity(Entity e){
+        entities.add(e);
+    }
 
+
+    public void update() {
+        for (int i = 0; i < entities.size(); i++) {
+        entities.get(i).update();
+            if(entities.get(i).removed){
+                entities.remove(i);
+            }
+        }
     }
 
     private void time() {
@@ -70,6 +83,9 @@ public class LevelManager {
             for (int x = x0; x < x1; x++) {
                 getTile(x, y).render(x ,y ,graphics);
             }
+        }
+        for (int i = 0; i < entities.size(); i++) {
+            entities.get(i).render(graphics);
         }
     }
 

@@ -1,8 +1,10 @@
 package entity;
 
+import levelMaker.LevelManager;
 import main.GraphicHandler;
 import main.graphics.Sprite;
 import main.input.InputManager;
+import main.input.MouseInputManager;
 
 
 public class Player extends Mob {
@@ -11,6 +13,7 @@ public class Player extends Mob {
     public boolean moving = false;
     public int animation_counter;
     public int cycle_counter;
+
 
     public Player(InputManager input) {
         this.input = input;
@@ -69,7 +72,26 @@ public class Player extends Mob {
         } else {
             moving = false;
         }
+        calculate_shot();
+    }
+    protected void calculate_shot(){
+        if(GraphicHandler.mouseManager.getMouseB() == 1){
+            // Player is always centered with ann offset of height/2 and width/2
+            // remove the offset and using simple trig we get the angle
+//            System.out.println("Y: "+(GraphicHandler.mouseManager.getMouseY() - GraphicHandler.height/2 - 16));
+//            System.out.println("X: "+(GraphicHandler.mouseManager.getMouseX() - GraphicHandler.width/2 - 16));
+            double theta = Math.atan2((double)(GraphicHandler.mouseManager.getMouseY() - GraphicHandler.height/2 - 16),
+                                        (double)(GraphicHandler.mouseManager.getMouseX()- GraphicHandler.width/2 - 16));
+            shoot(x, y, theta);
+        }
     }
 
+    protected void shoot(int x, int y, double dir){
+//               System.out.println(Math.toDegrees(dir));
+        Projectile p = new Projectile(this.x, this.y, dir,10, Sprite.boom, level);
+        projectileList.add(p);
+        level.addEntity(p);
+
+    }
 
 }

@@ -3,13 +3,18 @@ package entity;
 import levelMaker.LevelManager;
 import main.GraphicHandler;
 import main.graphics.Sprite;
+import main.input.MouseInputManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Mob extends Entity {
 
     protected static Sprite sprite;
     protected int dir = 0;
     protected boolean moving = false;
-    private LevelManager level;
+    protected List<Projectile> projectileList = new ArrayList<Projectile>();
+    protected LevelManager level;
 
     public void move(int Xin, int Yin) {
         // 0 up 1 east 2 south 3 west > compass

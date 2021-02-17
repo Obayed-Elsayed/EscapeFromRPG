@@ -1,30 +1,18 @@
 package main;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.image.*;
-import java.io.File;
-import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
-import java.util.TimerTask;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 //import java.util.Timer;
-import javax.imageio.*;
 // local imports
 import entity.*;
 import levelMaker.LevelManager;
 import levelMaker.MapSpawner;
-import levelMaker.ProceduralLevel;
 import levelMaker.Tile;
 import main.graphics.Sprite;
 import main.input.InputManager;
-import sun.plugin2.gluegen.runtime.BufferFactory;
+import main.input.MouseInputManager;
 
 // TODO: rename this class appropriately like GameManager?
 // TODO: Remove useless imports
@@ -41,14 +29,15 @@ public class GraphicHandler extends Canvas {
     private int[] pixels;
     private int[] calc_pixels;
     private MainFrame frame;
-    private InputManager inputManager;
+    private InputManager keyboardManager;
+    public static MouseInputManager mouseManager = new MouseInputManager();
     private LevelManager testLevel;
     private LevelManager bitLevel;
     private Random random = new Random();
 //    private final int MAP_SIZE = 64;
 
-    public int width;
-    public int height;
+    public static int width;
+    public static int height;
     public int[] tiles = new int[64 * 64];
     public int map_x_off = 0;
     public int map_y_off = 0;
@@ -63,21 +52,27 @@ public class GraphicHandler extends Canvas {
         calc_pixels = ((DataBufferInt) displayedImage.getRaster().getDataBuffer()).getData();
 
 
-        inputManager = new InputManager();
-        addKeyListener(inputManager);
+        keyboardManager = new InputManager();
+//        mouseManager = new MouseInputManager();
+        addKeyListener(keyboardManager);
+        addMouseListener(mouseManager);
+        addMouseMotionListener(mouseManager);
+
 //        testLevel = new ProceduralLevel(64, 64);
         bitLevel = new MapSpawner(128, 128,"src/Resources/sprites/terrain/map2.png");
-        player = new Player(32*6,32*7,inputManager);
+        player = new Player(32*6,32*7, keyboardManager);
+        // give player collision info/ level
         player.setLevel(bitLevel);
     }
 
     public void tick() {
-        inputManager.update();
-        if (inputManager.left) this.map_x_off-=5;
-        if (inputManager.right) this.map_x_off+=5;
-        if (inputManager.up) this.map_y_off-=5;
-        if (inputManager.down) this.map_y_off+=5;
+        keyboardManager.update();
+        if (keyboardManager.left) this.map_x_off-=5;
+        if (keyboardManager.right) this.map_x_off+=5;
+        if (keyboardManager.up) this.map_y_off-=5;
+        if (keyboardManager.down) this.map_y_off+=5;
         player.update();
+        bitLevel.update();
 
     }
 
@@ -126,7 +121,7 @@ public class GraphicHandler extends Canvas {
         }
     }
 
-    public void displayMap(int xPos, int yPos, Tile tile) {
+    public void displaySprite(int xPos, int yPos, Tile tile) {
         xPos -= map_x_off;
         yPos -= map_y_off;
         for (int y = 0; y < tile.sprite.SIZE; y++) {
