@@ -14,6 +14,8 @@ public class Player extends Mob {
     public int animation_counter;
     public int cycle_counter;
 
+    private int fireRate;
+
 
     public Player(InputManager input) {
         this.input = input;
@@ -27,6 +29,7 @@ public class Player extends Mob {
         this.input = input;
         this.animation_counter = 0;
         this.cycle_counter = 0;
+        fireRate = Projectile.ROF;
     }
 
     public Player() {
@@ -56,6 +59,9 @@ public class Player extends Mob {
     }
 
     public void update() {
+        if (fireRate>0) {
+            fireRate--;
+        }
         int xa = 0, ya = 0;
         // TODO test with 5000000 then change to near max INT
         if (animation_counter < 5000000) animation_counter++;
@@ -74,23 +80,24 @@ public class Player extends Mob {
         }
         calculate_shot();
     }
-    protected void calculate_shot(){
-        if(GraphicHandler.mouseManager.getMouseB() == 1){
+
+    protected void calculate_shot() {
+        if (GraphicHandler.mouseManager.getMouseB() == 1 && fireRate == 0) {
             // Player is always centered with ann offset of height/2 and width/2
             // remove the offset and using simple trig we get the angle
 //            System.out.println("Y: "+(GraphicHandler.mouseManager.getMouseY() - GraphicHandler.height/2 - 16));
 //            System.out.println("X: "+(GraphicHandler.mouseManager.getMouseX() - GraphicHandler.width/2 - 16));
-            double theta = Math.atan2((double)(GraphicHandler.mouseManager.getMouseY() - GraphicHandler.height/2 - 16),
-                                        (double)(GraphicHandler.mouseManager.getMouseX()- GraphicHandler.width/2 - 16));
+            double theta = Math.atan2((double) (GraphicHandler.mouseManager.getMouseY() - GraphicHandler.height / 2 - 16),
+                    (double) (GraphicHandler.mouseManager.getMouseX() - GraphicHandler.width / 2 - 16));
             shoot(x, y, theta);
         }
     }
 
-    protected void shoot(int x, int y, double dir){
+    protected void shoot(int x, int y, double dir) {
 //               System.out.println(Math.toDegrees(dir));
-        Projectile p = new Projectile(this.x, this.y, dir,10, Sprite.boom, level);
-        projectileList.add(p);
+        Projectile p = new KnifeProj(this.x, this.y, dir, 10, 4000, Sprite.boom, level);
         level.addEntity(p);
+        fireRate = Projectile.ROF;
 
     }
 

@@ -13,7 +13,6 @@ public abstract class Mob extends Entity {
     protected static Sprite sprite;
     protected int dir = 0;
     protected boolean moving = false;
-    protected List<Projectile> projectileList = new ArrayList<Projectile>();
     protected LevelManager level;
 
     public void move(int Xin, int Yin) {

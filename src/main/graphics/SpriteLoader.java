@@ -20,6 +20,7 @@ public class SpriteLoader {
     public static SpriteLoader projectile = new SpriteLoader("/Resources/sprites/playerDummy/testshot.png", 32, 32);
     public static SpriteLoader basicTerrain = new SpriteLoader("/Resources/sprites/terrain/Terrain.png", 128, 160);
     public static SpriteLoader mapTerrain = new SpriteLoader("/Resources/sprites/terrain/tileset.png", 256, 256);
+    public static SpriteLoader knvies = new SpriteLoader("/Resources/sprites/projectiles/throwknife-Sheet.png",256 , 32);
 
     public SpriteLoader(String path, int xSize, int ySize) {
         this.path = path;

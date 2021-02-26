@@ -36,6 +36,24 @@ public class Sprite {
                     scaled_player1, scaled_player2, scaled_player3, scaled_player4, scaled_player4, scaled_player5, scaled_player6
             };
 
+
+    public static Sprite knife1 = new Sprite(32, 0, 0, SpriteLoader.knvies);
+    public static Sprite knife2 = new Sprite(32, 1, 0, SpriteLoader.knvies);
+    public static Sprite knife3 = new Sprite(32, 2, 0, SpriteLoader.knvies);
+    public static Sprite knife4 = new Sprite(32, 3, 0, SpriteLoader.knvies);
+    public static Sprite knife5 = new Sprite(32, 4, 0, SpriteLoader.knvies);
+    public static Sprite knife6 = new Sprite(32, 5, 0, SpriteLoader.knvies);
+    public static Sprite knife7 = new Sprite(32, 6, 0, SpriteLoader.knvies);
+    public static Sprite knife8 = new Sprite(32, 7, 0, SpriteLoader.knvies);
+
+    public static int zoom=2;
+    public static Sprite knife_projectile[] =
+
+            {
+                    Sprite.scale(knife1, zoom), Sprite.scale(knife2,zoom) , Sprite.scale(knife3,zoom),
+                    Sprite.scale(knife4,zoom), Sprite.scale(knife5,zoom), Sprite.scale(knife6,zoom),
+                    Sprite.scale(knife7,zoom), Sprite.scale(knife8,zoom)
+            };
     public static Sprite front_player = new Sprite(32, 1, 3, SpriteLoader.player_dummy2);
     public static Sprite left_player = new Sprite(right_player1.SIZE, Sprite.flip_sprite(right_player1.SIZE, right_player1));
     public static Sprite idle_player_01 = new Sprite(32, 0, 0, SpriteLoader.ghost);
