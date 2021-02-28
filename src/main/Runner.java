@@ -13,7 +13,7 @@ public class Runner implements Runnable {
     private MainFrame mainFrame;
     // public static final Logger logger = Logger.getLogger(Runner.class.getName());
     public Runner(){
-         this.mainFrame = new MainFrame(960);
+         this.mainFrame = new MainFrame(1920);
     }
 
     public synchronized void start() {

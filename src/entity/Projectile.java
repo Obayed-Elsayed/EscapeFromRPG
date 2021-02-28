@@ -41,29 +41,21 @@ public class Projectile extends Entity {
 
     public void move(){
         // TODO check collision
+        if(!level.collision(x, y, xCompVector, yCompVector, LevelManager.tileConverter)){
+
             this.x +=xCompVector;
             this.y +=yCompVector;
+        }else{
+            remove();
+        }
             if(distance()>range) remove();
     }
 
-    private double distance(){
+    public double distance(){
         return Math.sqrt((xorigin-x)*(xorigin-x) + (yorigin-y)*(yorigin-y));
     }
 
-//    private boolean collision(int xstep, int ystep) {
-//        //passing pixel number so divide by 32 to get actual tile
-//        for (int i =0; i< 4; i++) {
-//            int dbg1= 0;d
-//            int dbg2= 0;
-//            int xf = ((x + xstep) + dbg1) >> 5;
-//            int yf = ((y + ystep) + dbg2) >> 5;
-//            if(level.getTile(xf,yf).solid()) return true;
-//
-//        }
-//
-//        return false;
-//
-//    }
+
 
     public void render(GraphicHandler gh){
         gh.renderPlayer((int)x, (int)y, sprite);

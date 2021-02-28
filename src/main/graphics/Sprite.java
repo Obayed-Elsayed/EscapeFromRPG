@@ -6,6 +6,8 @@ public class Sprite {
     private SpriteLoader spriteSheet;
 
     public int SIZE;
+    public int xSIZE;
+    public int ySIZE;
     public int[] sprite_data;
 
     // Load in sprites here
@@ -46,7 +48,9 @@ public class Sprite {
     public static Sprite knife7 = new Sprite(32, 6, 0, SpriteLoader.knvies);
     public static Sprite knife8 = new Sprite(32, 7, 0, SpriteLoader.knvies);
 
-    public static int zoom=2;
+    public static Sprite light = new Sprite(512,288, SpriteLoader.lightLayer);
+
+    public static int zoom=1;
     public static Sprite knife_projectile[] =
 
             {
@@ -93,6 +97,16 @@ public class Sprite {
         sprite_data = new int[SIZE * SIZE];
         setColour(colour);
     }
+    public Sprite(int xsize,int ysize, SpriteLoader spriteSheet) {
+        SIZE = -1;
+        xSIZE =xsize;
+        ySIZE =ysize;
+        this.x=0;
+        this.y=0;
+        this.spriteSheet = spriteSheet;
+        sprite_data = new int[xSIZE * ySIZE];
+        extractSpriteFromSheetNonSquared();
+    }
 
     public Sprite(int size, int[] data) {
         this.sprite_data = data;
@@ -123,6 +137,15 @@ public class Sprite {
         }
     }
 
+    private void extractSpriteFromSheetNonSquared() {
+
+        for (int y = 0; y < ySIZE; y++) {
+            for (int x = 0; x < xSIZE; x++) {
+                sprite_data[x + y * xSIZE] = this.spriteSheet.image_data[(x + this.x) + (y + this.y) * this.spriteSheet.xSIZE];
+            }
+        }
+    }
+
     public static boolean verifyAssetsHaveLoaded() {
         return idle_player_01 != null && dummyTile != null && solidTile != null && voidTile_a != null && voidTile_b != null;
     }
@@ -146,6 +169,9 @@ public class Sprite {
 
     }
     public static Sprite scale(Sprite sprite, int scale) {
+        if(scale == 1){
+            return new Sprite(sprite.SIZE, sprite.sprite_data);
+        }
         int scaled_size = scale * sprite.SIZE;
         int[] scaled_data = new int[scaled_size * scaled_size];
 
@@ -162,6 +188,14 @@ public class Sprite {
         }
         return new Sprite(scaled_size, scaled_data);
 
+    }
+
+    public static Sprite litSprite(Sprite sprite){
+        int data[] = new int[sprite.SIZE * sprite.SIZE];
+        for (int i = 0; i < sprite.SIZE * sprite.SIZE; i++) {
+            data[i] = sprite.sprite_data[i] + 0x002F2F2F;
+        }
+        return new Sprite(sprite.SIZE, data);
     }
 
 

@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.image.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.awt.AlphaComposite;
 //import java.util.Timer;
 // local imports
 import entity.*;
@@ -41,7 +42,7 @@ public class GraphicHandler extends Canvas {
     public int[] tiles = new int[64 * 64];
     public int map_x_off = 0;
     public int map_y_off = 0;
-
+    
     public GraphicHandler(MainFrame frame, int width, int height) {
         this.frame = frame;
         this.width = width;
@@ -53,7 +54,6 @@ public class GraphicHandler extends Canvas {
 
 
         keyboardManager = new InputManager();
-//        mouseManager = new MouseInputManager();
         addKeyListener(keyboardManager);
         addMouseListener(mouseManager);
         addMouseMotionListener(mouseManager);
@@ -61,8 +61,8 @@ public class GraphicHandler extends Canvas {
 //        testLevel = new ProceduralLevel(64, 64);
         bitLevel = new MapSpawner(128, 128,"src/Resources/sprites/terrain/map2.png");
         player = new Player(32*6,32*7, keyboardManager);
-        // give player collision info/ level
         player.setLevel(bitLevel);
+
     }
 
     public void tick() {
@@ -85,20 +85,18 @@ public class GraphicHandler extends Canvas {
         }
 
         this.clear();
-        // whereas this offset is the player position
+        // whereas this offset is the player position centered
         int xScroll = offsetx - this.width/2;
         int yScroll = offsety - this.height/2;
 
         this.bitLevel.render(xScroll, yScroll, this);
         this.player.render(this);
-        for (int i = 0; i < calc_pixels.length; i++) {
-            this.calc_pixels[i] = this.pixels[i];
-        }
-//        Arrays.stream(this.calc_pixels).forEach(pixel-> pixel = this.pi);
-//        this.calc_pixels= this.pixels.clone();
+
 
         Graphics g = this.bs.getDrawGraphics();
+
         g.drawImage(displayedImage, 0, 0, this.width, this.height, null);
+
 
         g.dispose();
         bs.show();
@@ -134,7 +132,7 @@ public class GraphicHandler extends Canvas {
                 if (xAbsolute < 0) {
                     xAbsolute = 0;
                 }
-                pixels[xAbsolute + yAbsolute * width] = tile.sprite.sprite_data[x + y * tile.sprite.SIZE];
+                this.calc_pixels[xAbsolute + yAbsolute * width] = tile.sprite.sprite_data[x + y * tile.sprite.SIZE];
             }
         }
     }
@@ -155,7 +153,7 @@ public class GraphicHandler extends Canvas {
                 int colour = sprite.sprite_data[x + y * sprite.SIZE];
                 // Render everything in sprite except background!
                 if (colour != 0xFFFF00FF){
-                    pixels[xAbsolute + yAbsolute * width] = sprite.sprite_data[x + y * sprite.SIZE];
+                    this.calc_pixels[xAbsolute + yAbsolute * width] = sprite.sprite_data[x + y * sprite.SIZE];
                 }
             }
         }

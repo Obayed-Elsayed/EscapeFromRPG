@@ -1,10 +1,13 @@
 package entity;
 
 import levelMaker.LevelManager;
+import levelMaker.Tile;
 import main.GraphicHandler;
 import main.graphics.Sprite;
 import main.input.InputManager;
-import main.input.MouseInputManager;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Player extends Mob {
@@ -72,6 +75,11 @@ public class Player extends Mob {
         if (this.input.left) xa -= 5;
         if (this.input.right) xa += 5;
 
+        if(moving) {
+            clearLitTiles();
+            calculatePlayerLighting();
+        }
+
         if (xa != 0 || ya != 0) {
             moving = true;
             move(xa, ya);
@@ -93,9 +101,56 @@ public class Player extends Mob {
         }
     }
 
+    //On Movement
+    public void calculatePlayerLighting(){
+        // 36 photons
+       for(int i =0; i < 37; i++){
+           Photon ray = new Photon(x, y, i*Math.PI/36,16.0,320, null, level);
+           while(!level.collision(ray.x,ray.y,ray.xCompVector,ray.yCompVector,0) && ray.distance()<ray.range){
+               //move onto the block
+               ray.x+=ray.xCompVector;
+               ray.y+=ray.yCompVector;
+               int xpos = (int)ray.x>>LevelManager.tileConverter;
+               int ypos = (int)ray.y>>LevelManager.tileConverter;
+               if(level.getTiles()[xpos + ypos * level.getMapWidth()] < Tile.lightingMapper){
+
+                   level.getTiles()[xpos + ypos * level.getMapWidth()]+= Tile.lightingMapper;
+               }
+           }
+       }
+       for(int i =0; i < 37; i++){
+           Photon ray = new Photon(x, y, i*-Math.PI/36,16.0,310, null, level);
+           while(!level.collision(ray.x,ray.y,ray.xCompVector,ray.yCompVector,0) && ray.distance()<ray.range){
+               //move onto the block
+               ray.x+=ray.xCompVector;
+               ray.y+=ray.yCompVector;
+               int xpos = (int)ray.x>>LevelManager.tileConverter;
+               int ypos = (int)ray.y>>LevelManager.tileConverter;
+               if(level.getTiles()[xpos + ypos * level.getMapWidth()] < Tile.lightingMapper){
+
+                   level.getTiles()[xpos + ypos * level.getMapWidth()]+= Tile.lightingMapper;
+               }
+           }
+//           int xpos = ((int)ray.x + (int)ray.xCompVector)>>LevelManager.tileConverter;
+//           int ypos = ((int)ray.y + (int)ray.yCompVector)>>LevelManager.tileConverter;
+//           if(level.getTiles()[xpos + ypos * level.getMapWidth()] < Tile.lightingMapper){
+//               level.getTiles()[xpos + ypos * level.getMapWidth()]+= Tile.lightingMapper;
+//           }
+       }
+    }
+
+    public void clearLitTiles(){
+        //TODO add a map with the coords of the tiles that were lit up to clear them, instead of the entire map
+            for(int i =0; i < level.getTiles().length; i++){
+                if(level.getTiles()[i]>= Tile.lightingMapper){
+                    level.getTiles()[i]-=Tile.lightingMapper;
+                }
+            }
+    }
+
     protected void shoot(int x, int y, double dir) {
 //               System.out.println(Math.toDegrees(dir));
-        Projectile p = new KnifeProj(this.x, this.y, dir, 10, 4000, Sprite.boom, level);
+        Projectile p = new KnifeProj(this.x, this.y, dir, 35, 4000, Sprite.boom, level);
         level.addEntity(p);
         fireRate = Projectile.ROF;
 

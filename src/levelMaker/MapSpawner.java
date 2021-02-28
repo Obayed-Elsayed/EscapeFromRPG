@@ -1,8 +1,6 @@
 package levelMaker;
 
-import main.GraphicHandler;
 import main.graphics.Sprite;
-import main.graphics.SpriteLoader;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -23,7 +21,7 @@ public class MapSpawner extends LevelManager {
 
     @Override
     public void loadLevel(String path) {
-        bit_map = new int[width * height];
+        bit_map = new int[mapWidth * mapHeight];
         try {
             //BufferedImage image = ImageIO.read(SpriteLoader.class.getResource(path));
             BufferedImage image = ImageIO.read(new File(path));
@@ -87,13 +85,21 @@ public class MapSpawner extends LevelManager {
             }
             assets.put(colors[i], i);
         }
+        Tile.lightingMapper =Tile.map_tiles.size();
+        Tile.tile_assets =  new Tile[Tile.lightingMapper];
+        Tile.tile_assets =  Tile.map_tiles.toArray(Tile.tile_assets);
+        for(Tile t: Tile.tile_assets){
+            // add the lit up version of this tile
+            Tile.map_tiles.add(new GenericTile(Sprite.litSprite(t.sprite)));
+        }
+
+        // change it back to an array again
         Tile.tile_assets =  new Tile[Tile.map_tiles.size()];
         Tile.tile_assets =  Tile.map_tiles.toArray(Tile.tile_assets);
 
-
-        for(int y = 0; y < height; y++){
-            for(int x = 0; x < width; x++){
-                tiles[x + y * width] = assets.get(bit_map[x + y * width]);
+        for(int y = 0; y < mapHeight; y++){
+            for(int x = 0; x < mapWidth; x++){
+                tiles[x + y * mapWidth] = assets.get(bit_map[x + y * mapWidth]);
 //               System.out.print(tiles[x + y * width]);
             }
 //            System.out.println();
@@ -108,17 +114,14 @@ public class MapSpawner extends LevelManager {
 
     @Override
     public Tile getTile(int x, int y) {
-        if (x < 0 || y < 0 || x >= width || y >= height) {
+        if (x < 0 || y < 0 || x >= mapWidth || y >= mapHeight) {
             return Tile.dummyTile;
         }
         try{
 
-            //System.out.println(tiles[x + y * width]);
-//          return Tile.map_tiles.get(tiles[x + y * width]);
-            return Tile.tile_assets[tiles[x + y * width]];
+            return Tile.tile_assets[tiles[x + y * mapWidth]];
         }
         catch(Exception e){
-           // System.out.println("OH NO");
             return Tile.dummyTile;
         }
 
