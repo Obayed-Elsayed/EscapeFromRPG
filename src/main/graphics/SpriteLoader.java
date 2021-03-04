@@ -21,7 +21,7 @@ public class SpriteLoader {
     public static SpriteLoader basicTerrain = new SpriteLoader("/Resources/sprites/terrain/Terrain.png", 128, 160);
     public static SpriteLoader mapTerrain = new SpriteLoader("/Resources/sprites/terrain/tilesetv4.png", 256, 256);
     public static SpriteLoader knvies = new SpriteLoader("/Resources/sprites/projectiles/throwknife-Sheet.png",256 , 32);
-    public static SpriteLoader lightLayer = new SpriteLoader("/Resources/sprites/projectiles/FOW2.png",512 , 288);
+    public static SpriteLoader mainPlayer = new SpriteLoader("/Resources/sprites/playerDummy/mcsheet1.png",288 , 528);
 
     public SpriteLoader(String path, int xSize, int ySize) {
         this.path = path;

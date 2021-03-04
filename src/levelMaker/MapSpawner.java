@@ -91,6 +91,7 @@ public class MapSpawner extends LevelManager {
         for(Tile t: Tile.tile_assets){
             // add the lit up version of this tile
             Tile.map_tiles.add(new GenericTile(Sprite.litSprite(t.sprite)));
+            Tile.map_tiles.get(Tile.map_tiles.size()-1).setSolid(t.solid());
         }
 
         // change it back to an array again

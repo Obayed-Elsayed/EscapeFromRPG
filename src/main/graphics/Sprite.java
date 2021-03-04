@@ -9,34 +9,145 @@ public class Sprite {
     public int xSIZE;
     public int ySIZE;
     public int[] sprite_data;
-
+    public static int zoom=2;
     // Load in sprites here
     // TODO better naming convention for tile sprites
-    public static Sprite right_player1 = new Sprite(32, 0, 0, SpriteLoader.player_dummy2);
-    public static Sprite right_player2 = new Sprite(32, 1, 0, SpriteLoader.player_dummy2);
-    public static Sprite right_player3 = new Sprite(32, 2, 0, SpriteLoader.player_dummy2);
-    public static Sprite right_player4 = new Sprite(32, 3, 0, SpriteLoader.player_dummy2);
-    public static Sprite right_player5 = new Sprite(32, 4, 0, SpriteLoader.player_dummy2);
-    public static Sprite right_player6 = new Sprite(32, 0, 1, SpriteLoader.player_dummy2);
 
-    public static Sprite scaled_player1 = Sprite.scale(right_player1,3);
-    public static Sprite scaled_player2 = Sprite.scale(right_player2,3);
-    public static Sprite scaled_player3 = Sprite.scale(right_player3,3);
-    public static Sprite scaled_player4 = Sprite.scale(right_player4,3);
-    public static Sprite scaled_player5 = Sprite.scale(right_player5,3);
-    public static Sprite scaled_player6 = Sprite.scale(right_player6,3);
+
+    public static Sprite rp_rightidle1 = new Sprite(48, 0, 1, SpriteLoader.mainPlayer);
+    public static Sprite rp_rightidle2 = new Sprite(48, 1, 1, SpriteLoader.mainPlayer);
+    public static Sprite rp_rightidle3 = new Sprite(48, 2, 1, SpriteLoader.mainPlayer);
+    public static Sprite rp_rightidle4 = new Sprite(48, 3, 1, SpriteLoader.mainPlayer);
+
+    public static Sprite player_ridle_cycle[] =
+
+            {
+                    rp_rightidle1,
+                    rp_rightidle2,
+                    rp_rightidle3,
+                    rp_rightidle4,
+            };
+
+    public static Sprite rp_leftidle1 = new Sprite(48, 0, 2, SpriteLoader.mainPlayer);
+    public static Sprite rp_leftidle2 = new Sprite(48, 1, 2, SpriteLoader.mainPlayer);
+    public static Sprite rp_leftidle3 = new Sprite(48, 2, 2, SpriteLoader.mainPlayer);
+    public static Sprite rp_leftidle4 = new Sprite(48, 3, 2, SpriteLoader.mainPlayer);
+    public static Sprite player_lidle_cycle[] =
+            {
+                    rp_leftidle1,
+                    rp_leftidle2,
+                    rp_leftidle3,
+                    rp_leftidle4,
+            };
+
+    public static Sprite rp_rightcycle1 = new Sprite(48, 0, 3, SpriteLoader.mainPlayer);
+    public static Sprite rp_rightcycle2 = new Sprite(48, 1, 3, SpriteLoader.mainPlayer);
+    public static Sprite rp_rightcycle3 = new Sprite(48, 2, 3, SpriteLoader.mainPlayer);
+    public static Sprite rp_rightcycle4 = new Sprite(48, 3, 3, SpriteLoader.mainPlayer);
+    public static Sprite rp_rightcycle5 = new Sprite(48, 4, 3, SpriteLoader.mainPlayer);
+    public static Sprite rp_rightcycle6 = new Sprite(48, 5, 3, SpriteLoader.mainPlayer);
 
     public static Sprite player_right_cycle[] =
 
             {
-                    right_player1, right_player2, right_player3, right_player4, right_player4, right_player5, right_player6
+                    scale(rp_rightcycle1, zoom),
+                    scale(rp_rightcycle2, zoom),
+                    scale(rp_rightcycle3, zoom),
+                    scale(rp_rightcycle4, zoom),
+                    scale(rp_rightcycle5, zoom),
+                    scale(rp_rightcycle6, zoom)
             };
 
-    public static Sprite player_scaled_cycle[] =
+    public static Sprite rp_leftcycle1 = new Sprite(48, 0, 4, SpriteLoader.mainPlayer);
+    public static Sprite rp_leftcycle2 = new Sprite(48, 1, 4, SpriteLoader.mainPlayer);
+    public static Sprite rp_leftcycle3 = new Sprite(48, 2, 4, SpriteLoader.mainPlayer);
+    public static Sprite rp_leftcycle4 = new Sprite(48, 3, 4, SpriteLoader.mainPlayer);
+    public static Sprite rp_leftcycle5 = new Sprite(48, 4, 4, SpriteLoader.mainPlayer);
+    public static Sprite rp_leftcycle6 = new Sprite(48, 5, 4, SpriteLoader.mainPlayer);
+
+    public static Sprite player_left_cycle[] =
 
             {
-                    scaled_player1, scaled_player2, scaled_player3, scaled_player4, scaled_player4, scaled_player5, scaled_player6
+                    scale(rp_leftcycle1, zoom),
+                    scale(rp_leftcycle2, zoom),
+                    scale(rp_leftcycle3, zoom),
+                    scale(rp_leftcycle4, zoom),
+                    scale(rp_leftcycle5, zoom),
+                    scale(rp_leftcycle6, zoom)
             };
+
+    public static Sprite rp_shootLeft1 = new Sprite(48, 0, 8, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootLeft2 = new Sprite(48, 1, 8, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootLeft3 = new Sprite(48, 2, 8, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootLeft4 = new Sprite(48, 3, 8, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootLeft5 = new Sprite(48, 4, 8, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootLeft6 = new Sprite(48, 5, 8, SpriteLoader.mainPlayer);
+
+    public static Sprite player_shootL_cycle[] =
+
+            {
+                    scale(rp_shootLeft1, zoom),
+                    scale(rp_shootLeft2, zoom),
+                    scale(rp_shootLeft3, zoom),
+                    scale(rp_shootLeft4, zoom),
+                    scale(rp_shootLeft5, zoom),
+                    scale(rp_shootLeft6, zoom)
+            };
+
+    public static Sprite rp_shootRight1 = new Sprite(48, 0, 7, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootRight2 = new Sprite(48, 1, 7, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootRight3 = new Sprite(48, 2, 7, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootRight4 = new Sprite(48, 3, 7, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootRight5 = new Sprite(48, 4, 7, SpriteLoader.mainPlayer);
+    public static Sprite rp_shootRight6 = new Sprite(48, 5, 7, SpriteLoader.mainPlayer);
+
+    public static Sprite player_shootR_cycle[] =
+
+            {
+                    scale(rp_shootRight1, zoom),
+                    scale(rp_shootRight2, zoom),
+                    scale(rp_shootRight3, zoom),
+                    scale(rp_shootRight4, zoom),
+                    scale(rp_shootRight5, zoom),
+                    scale(rp_shootRight6, zoom)
+            };
+
+    public static Sprite rp_tleftcycle1 = new Sprite(48, 0, 5, SpriteLoader.mainPlayer);
+    public static Sprite rp_tleftcycle2 = new Sprite(48, 1, 5, SpriteLoader.mainPlayer);
+    public static Sprite rp_tleftcycle3 = new Sprite(48, 2, 5, SpriteLoader.mainPlayer);
+    public static Sprite rp_tleftcycle4 = new Sprite(48, 3, 5, SpriteLoader.mainPlayer);
+    public static Sprite rp_tleftcycle5 = new Sprite(48, 4, 5, SpriteLoader.mainPlayer);
+    public static Sprite rp_tleftcycle6 = new Sprite(48, 5, 5, SpriteLoader.mainPlayer);
+
+    public static Sprite player_tleft_cycle[] =
+
+            {
+                    scale(rp_tleftcycle1, zoom),
+                    scale(rp_tleftcycle2, zoom),
+                    scale(rp_tleftcycle3, zoom),
+                    scale(rp_tleftcycle4, zoom),
+                    scale(rp_tleftcycle5, zoom),
+                    scale(rp_tleftcycle6, zoom)
+            };
+
+    public static Sprite rp_trightcycle1 = new Sprite(48, 0, 6, SpriteLoader.mainPlayer);
+    public static Sprite rp_trightcycle2 = new Sprite(48, 1, 6, SpriteLoader.mainPlayer);
+    public static Sprite rp_trightcycle3 = new Sprite(48, 2, 6, SpriteLoader.mainPlayer);
+    public static Sprite rp_trightcycle4 = new Sprite(48, 3, 6, SpriteLoader.mainPlayer);
+    public static Sprite rp_trightcycle5 = new Sprite(48, 4, 6, SpriteLoader.mainPlayer);
+    public static Sprite rp_trightcycle6 = new Sprite(48, 5, 6, SpriteLoader.mainPlayer);
+
+    public static Sprite player_tright_cycle[] =
+
+            {
+                    scale(rp_trightcycle1, zoom),
+                    scale(rp_trightcycle2, zoom),
+                    scale(rp_trightcycle3, zoom),
+                    scale(rp_trightcycle4, zoom),
+                    scale(rp_trightcycle5, zoom),
+                    scale(rp_trightcycle6, zoom)
+            };
+
 
 
     public static Sprite knife1 = new Sprite(32, 0, 0, SpriteLoader.knvies);
@@ -48,19 +159,15 @@ public class Sprite {
     public static Sprite knife7 = new Sprite(32, 6, 0, SpriteLoader.knvies);
     public static Sprite knife8 = new Sprite(32, 7, 0, SpriteLoader.knvies);
 
-    public static Sprite light = new Sprite(512,288, SpriteLoader.lightLayer);
 
-    public static int zoom=1;
     public static Sprite knife_projectile[] =
 
             {
-                    Sprite.scale(knife1, zoom), Sprite.scale(knife2,zoom) , Sprite.scale(knife3,zoom),
-                    Sprite.scale(knife4,zoom), Sprite.scale(knife5,zoom), Sprite.scale(knife6,zoom),
-                    Sprite.scale(knife7,zoom), Sprite.scale(knife8,zoom)
+                    Sprite.scale(knife1, zoom), Sprite.scale(knife2, zoom), Sprite.scale(knife3, zoom),
+                    Sprite.scale(knife4, zoom), Sprite.scale(knife5, zoom), Sprite.scale(knife6, zoom),
+                    Sprite.scale(knife7, zoom), Sprite.scale(knife8, zoom)
             };
-    public static Sprite front_player = new Sprite(32, 1, 3, SpriteLoader.player_dummy2);
-    public static Sprite left_player = new Sprite(right_player1.SIZE, Sprite.flip_sprite(right_player1.SIZE, right_player1));
-    public static Sprite idle_player_01 = new Sprite(32, 0, 0, SpriteLoader.ghost);
+
     public static Sprite boom = new Sprite(32, 0, 0, SpriteLoader.projectile);
 
     // Map assets
@@ -144,10 +251,6 @@ public class Sprite {
                 sprite_data[x + y * xSIZE] = this.spriteSheet.image_data[(x + this.x) + (y + this.y) * this.spriteSheet.xSIZE];
             }
         }
-    }
-
-    public static boolean verifyAssetsHaveLoaded() {
-        return idle_player_01 != null && dummyTile != null && solidTile != null && voidTile_a != null && voidTile_b != null;
     }
 
     public static void load_sprites() {

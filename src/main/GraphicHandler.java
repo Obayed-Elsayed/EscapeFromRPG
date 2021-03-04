@@ -42,7 +42,7 @@ public class GraphicHandler extends Canvas {
     public int[] tiles = new int[64 * 64];
     public int map_x_off = 0;
     public int map_y_off = 0;
-    
+
     public GraphicHandler(MainFrame frame, int width, int height) {
         this.frame = frame;
         this.width = width;
@@ -59,18 +59,19 @@ public class GraphicHandler extends Canvas {
         addMouseMotionListener(mouseManager);
 
 //        testLevel = new ProceduralLevel(64, 64);
-        bitLevel = new MapSpawner(128, 128,"src/Resources/sprites/terrain/map2.png");
+        bitLevel = new MapSpawner(128, 128,"src/Resources/sprites/terrain/demomap.png");
         player = new Player(32*6,32*7, keyboardManager);
         player.setLevel(bitLevel);
+        player.calculatePlayerLighting();
 
     }
 
     public void tick() {
         keyboardManager.update();
-        if (keyboardManager.left) this.map_x_off-=5;
-        if (keyboardManager.right) this.map_x_off+=5;
-        if (keyboardManager.up) this.map_y_off-=5;
-        if (keyboardManager.down) this.map_y_off+=5;
+        if (keyboardManager.left) this.map_x_off-=3;
+        if (keyboardManager.right) this.map_x_off+=3;
+        if (keyboardManager.up) this.map_y_off-=3;
+        if (keyboardManager.down) this.map_y_off+=3;
         player.update();
         bitLevel.update();
 
@@ -100,23 +101,6 @@ public class GraphicHandler extends Canvas {
 
         g.dispose();
         bs.show();
-    }
-
-    // bit wise shift is faster than dividing by 32
-    // bit wise & for resetting map rendering
-    // Helpful reminder that the difference between y=0 and y=1 is (1* width of screen), because linear array
-    public void display(int offsetx, int offsety) {
-        for (int y = 0; y < height; y++) {
-            int yPixel = y + offsety;
-            if (yPixel < 0 || yPixel >= height) continue;
-            for (int x = 0; x < width; x++) {
-                int xPixel = x + offsetx;
-                if (xPixel < 0 || xPixel >= width) continue;
-                //int tileIndex = ((xPixel >> 5) & (MAP_SIZE - 1)) + ((yPixel >> 5) & (MAP_SIZE - 1)) * MAP_SIZE;
-                //pixels[x + y * width] = tiles[tileIndex];
-                pixels[(xPixel) + (yPixel) * width] = Sprite.idle_player_01.sprite_data[(x & 31) + (y & 31) * Sprite.idle_player_01.SIZE];
-            }
-        }
     }
 
     public void displaySprite(int xPos, int yPos, Tile tile) {
