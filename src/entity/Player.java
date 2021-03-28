@@ -25,7 +25,6 @@ public class Player extends Mob {
 
 
     private int fireRate;
-
     private static ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
 
     public Player(InputManager input) {
@@ -161,12 +160,28 @@ public class Player extends Mob {
             shoot(x, y, theta);
         }
     }
+    // 155-165
+    public void runPlayerLighting(){
+        Thread lighting = new Thread(){
+            @Override
+            public void run(){
+                while(true){
+                    long time = System.nanoTime();
+                    calculatePlayerLighting();
+                    long now = System.nanoTime();
+                    System.out.println(1000000000/(now-time));
+                }
+            }
+
+        };
+        lighting.start();
+    }
 
     //On Movement
     public void calculatePlayerLighting(){
         // 36 photons
-       for(int i =0; i < 73; i++){
-           Photon ray = new Photon(x + sprite.SIZE/2, y+sprite.SIZE/2, i*Math.PI/72,16.0,160, null, level);
+       for(int i =0; i < 181; i++){
+           Photon ray = new Photon(x + sprite.SIZE/2, y+sprite.SIZE/2, i*Math.PI/180,16.0,320, null, level);
            while(!level.collision(ray.x,ray.y,ray.xCompVector,ray.yCompVector,0) && ray.distance()<ray.range){
                //move onto the block
                ray.x+=ray.xCompVector;
@@ -186,8 +201,8 @@ public class Player extends Mob {
                }
            }
        }
-       for(int i =0; i < 73; i++){
-           Photon ray = new Photon(x +sprite.SIZE/2, y + sprite.SIZE/2, i*-Math.PI/72,16.0,160, null, level);
+       for(int i =0; i < 181; i++){
+           Photon ray = new Photon(x +sprite.SIZE/2, y + sprite.SIZE/2, i*-Math.PI/180,16.0,320, null, level);
            while (!level.collision(ray.x, ray.y, ray.xCompVector, ray.yCompVector, 0) && ray.distance() < ray.range) {
                //move onto the block
                ray.x += ray.xCompVector;

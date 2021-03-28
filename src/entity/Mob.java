@@ -48,8 +48,7 @@ public abstract class Mob extends Entity {
     private boolean collision(int xstep, int ystep) {
         //passing pixel number so divide by 32 to get actual tile
         for (int i = 0; i < 4; i++) {
-            System.out.println(sprite.SIZE);
-            int dbg1 = i % 2 * 80;
+            int dbg1 = i % 2 * 30 + 30;
             int dbg2 = i / 2 * 80;
             int xf = ((x + xstep) + dbg1) >> 5;
             int yf = ((y + ystep) + dbg2) >> 5;

@@ -46,6 +46,8 @@ public class Projectile extends Entity {
             this.x +=xCompVector;
             this.y +=yCompVector;
         }else{
+            Particle p = new Particle((int)x, (int)y, 30, 40);
+            this.level.addEntity(p);
             remove();
         }
             if(distance()>range) remove();

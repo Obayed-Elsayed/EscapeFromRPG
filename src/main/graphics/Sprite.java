@@ -13,6 +13,7 @@ public class Sprite {
     // Load in sprites here
     // TODO better naming convention for tile sprites
 
+    public static Sprite particle = new Sprite(4,4,0xFFFFFFFF);
 
     public static Sprite rp_rightidle1 = new Sprite(48, 0, 1, SpriteLoader.mainPlayer);
     public static Sprite rp_rightidle2 = new Sprite(48, 1, 1, SpriteLoader.mainPlayer);
@@ -204,12 +205,13 @@ public class Sprite {
         sprite_data = new int[SIZE * SIZE];
         setColour(colour);
     }
-    public Sprite(int xsize,int ysize, SpriteLoader spriteSheet) {
+
+    public Sprite(int xsize, int ysize, SpriteLoader spriteSheet) {
         SIZE = -1;
-        xSIZE =xsize;
-        ySIZE =ysize;
-        this.x=0;
-        this.y=0;
+        xSIZE = xsize;
+        ySIZE = ysize;
+        this.x = 0;
+        this.y = 0;
         this.spriteSheet = spriteSheet;
         sprite_data = new int[xSIZE * ySIZE];
         extractSpriteFromSheetNonSquared();
@@ -220,12 +222,26 @@ public class Sprite {
         this.SIZE = size;
     }
 
+    public Sprite(int w, int h, int color) {
+        this.xSIZE = w;
+        this.ySIZE = h;
+        this.SIZE = -1;
+        sprite_data = new int[w*h];
+        setColour2(color);
+    }
+
     public Sprite() {
 
     }
 
     private void setColour(int colour) {
         for (int i = 0; i < SIZE * SIZE; i++) {
+            sprite_data[i] = colour;
+        }
+    }
+
+    private void setColour2(int colour) {
+        for (int i = 0; i < xSIZE *ySIZE; i++) {
             sprite_data[i] = colour;
         }
     }
